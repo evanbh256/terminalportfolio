@@ -176,3 +176,17 @@ html {
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
   background: rgba(74, 222, 128, 0.5);
 }
+
+
+/* Techy animated grid background */
+.techy-background {
+  background-color: #000000;
+  background-image: 
+    linear-gradient(rgba(16, 185, 129, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(16, 185, 129, 0.05) 1px, transparent 1px),
+    linear-gradient(rgba(16, 185, 129, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(16, 185, 129, 0.03) 1px, transparent 1px);
+  background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
+  background-position: -2px -2px, -2px -2px, -1px -1px, -1px -1px;
+  animation: gridMove 20s linear infinite;
+}

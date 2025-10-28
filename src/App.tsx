@@ -36,9 +36,12 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-green-950 overflow-hidden">
+    <div className="min-h-screen techy-background overflow-hidden relative">
+      {/* Gradient overlay for depth */}
+      <div className="absolute inset-0 bg-gradient-to-br from-green-950/20 via-transparent to-cyan-950/20 pointer-events-none" />
+      
       {/* Main Content */}
-      <main className="px-6 md:px-12">
+      <main className="px-6 md:px-12 relative z-10">
         <Hero onNavigate={handleOpenWindow} />
       </main>
 
@@ -70,11 +73,11 @@ export default function App() {
       )}
 
       {/* Footer */}
-      <footer className="px-6 md:px-12 py-8">
+      <footer className="px-6 md:px-12 py-8 relative z-10">
         <div className="max-w-5xl mx-auto">
-            <p className="text-center text-gray-500 text-sm font-mono">
-            Â© {new Date().getFullYear()} Evan Bhandari.
-            </p>
+          <p className="text-center text-gray-500 text-sm font-mono">
+            © 2025 Evan Bhandari. Built with React & Tailwind CSS.
+          </p>
         </div>
       </footer>
     </div>
