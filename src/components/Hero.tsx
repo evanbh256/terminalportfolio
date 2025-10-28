@@ -184,12 +184,12 @@ export function Hero({ onNavigate }: HeroProps) {
                         <div className="text-yellow-400">
               Idea by{" "}
               <a
-                href="https://smaranpokahrel.com.np"
+                href="https://smaranpokharel.com.np"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:underline"
               >
-                smaranpokahrel.com.np
+                smaranpokharel.com.np
               </a>!
             </div>
         </div>
