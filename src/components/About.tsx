@@ -67,7 +67,7 @@ export function About() {
         <div className="bg-black/40 backdrop-blur-sm border border-green-900/30 rounded-lg p-8">
           <div className="flex flex-col md:flex-row gap-8 items-center">
         <img
-          src="img/evan.jpg"
+          src="/img/evan.jpg"
           alt="Evan's Photo"
           className="w-48 h-48 rounded-lg object-cover"
         />
