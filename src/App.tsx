@@ -76,7 +76,7 @@ export default function App() {
       <footer className="px-6 md:px-12 py-8 relative z-10">
         <div className="max-w-5xl mx-auto">
           <p className="text-center text-gray-500 text-sm font-mono">
-            © 2025 Evan Bhandari. Built with React & Tailwind CSS.
+            © 2025 Evan Bhandari. Zero Code Written.
           </p>
         </div>
       </footer>
