@@ -181,6 +181,9 @@ export function Hero({ onNavigate }: HeroProps) {
           <div>Uptime: {Math.floor((currentDate.getTime() - new Date(currentDate.getFullYear(), 0, 0).getTime()) / (1000 * 60 * 60 * 24))} days</div>
           <div>Shell: bash 5.2.26</div>
           <div className="text-purple-400 mt-2 font-bold">☕ Powered by Coffee</div>
+            <div className="text-yellow-400 font-bold-underline mt-2">
+            Idea by <a href="https://smaranpokharel.com.np" target="_blank" rel="noopener noreferrer">smaranpokharel.com.np!</a>
+            </div>
         </div>
       );
     } else if (trimmedCmd.startsWith("cd ")) {
