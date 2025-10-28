@@ -72,9 +72,9 @@ export default function App() {
       {/* Footer */}
       <footer className="px-6 md:px-12 py-8">
         <div className="max-w-5xl mx-auto">
-          <p className="text-center text-gray-500 text-sm font-mono">
-            Â© 2025 Evan Bhandari. Built with React & Tailwind CSS.
-          </p>
+            <p className="text-center text-gray-500 text-sm font-mono">
+            Â© {new Date().getFullYear()} Evan Bhandari.
+            </p>
         </div>
       </footer>
     </div>

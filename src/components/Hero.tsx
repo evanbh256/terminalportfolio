@@ -72,6 +72,9 @@ export function Hero({ onNavigate }: HeroProps) {
               </button>
             </div>
           </div>
+          <div className="mt-3 text-gray-500 text-sm italic">
+            Enter "help" to see a list of commands
+          </div>
         </div>
       ),
     },
