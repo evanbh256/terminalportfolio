@@ -23,22 +23,22 @@ export function Contact() {
     {
       icon: Mail,
       label: "Email",
-      value: "evan.bhandari@example.com",
-      href: "mailto:evan.bhandari@example.com",
+      value: "bhanadari.nirwan06@gmail.com",
+      href: "mailto:bhanadari.nirwan06@gmail.com",
       color: "text-green-400",
     },
     {
       icon: Linkedin,
       label: "LinkedIn",
-      value: "linkedin.com/in/evanbhandari",
-      href: "https://linkedin.com/in/evanbhandari",
+      value: "linkedin.com/in/evan-bhandari",
+      href: "https://www.linkedin.com/in/evan-bhandari-aa7b19218",
       color: "text-blue-400",
     },
     {
       icon: Github,
       label: "GitHub",
-      value: "github.com/evanbhandari",
-      href: "https://github.com/evanbhandari",
+      value: "https://github.com/evanbh256",
+      href: "https://github.com/evanbh256",
       color: "text-purple-400",
     },
   ];
