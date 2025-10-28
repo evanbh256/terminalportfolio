@@ -65,6 +65,13 @@ export function About() {
       <div className="space-y-6">
         {/* Bio Section */}
         <div className="bg-black/40 backdrop-blur-sm border border-green-900/30 rounded-lg p-8">
+          <div className="flex flex-col md:flex-row gap-8 items-center">
+        <img
+          src="/img/evan.jpg"
+          alt="Evan's Photo"
+          className="w-48 h-48 rounded-lg object-cover"
+        />
+        <div>
           <p className="text-gray-300 mb-4">
             A self-motivated computer science enthusiast looking
             to grow, develop, and learn. I have been involved in
@@ -76,6 +83,8 @@ export function About() {
             student events, doing Capture The Flags, Filming / editing 
             stories that matter and drinking coffee.
           </p>
+        </div>
+          </div>
         </div>
 
         {/* Education Section */}
