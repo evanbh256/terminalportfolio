@@ -1,7 +1,7 @@
 # 🧠 Evan Bhandari – Terminal Portfolio
 
 An interactive **terminal-style personal portfolio website** built with modern frontend technologies.  
-All the code was generated using **Figma Make** and **ChatGPT** — none of the source code was written manually.  
+All the code was generated using **Figma Make** and **ChatGPT** none of the source code was written manually.  
 
 ---
 
@@ -21,58 +21,6 @@ Commands such as `whoami`, `ls`, `cd`, and `socials` reveal different informatio
 - ⚙️ **Vite** – Super-fast bundler and dev server  
 - 🎨 **Lucide React** – Icon library for lightweight SVG icons  
 - 🌐 **gh-pages** – Deploys production build to GitHub Pages  
-
----
-
-## 🗂️ Project Structure
-
-```
-terminalportfolio/
-├── src/
-│   ├── components/        # React UI components
-│   ├── styles/            # Tailwind and global CSS
-│   ├── App.tsx            # Main app entry
-│   └── main.tsx           # React mount point
-├── public/                # Static assets
-├── package.json           # Scripts and dependencies
-├── vite.config.ts         # Vite configuration
-├── tailwind.config.js     # Tailwind setup
-└── postcss.config.js      # PostCSS config
-```
-
----
-
-## 🧑‍💻 Local Development
-
-```bash
-# Install dependencies
-npm install
-
-# Run the development server
-npm run dev
-
-# Build the project
-npm run build
-
-# Preview the production build
-npm run preview
-```
-
----
-
-## 🌍 Deployment
-
-This site is deployed using **GitHub Pages**.  
-To publish new updates to your live site:
-
-```bash
-npm run build
-npm run deploy
-```
-
-Your static files from the `dist/` folder will automatically be pushed to the `gh-pages` branch and hosted at:
-
-👉 **https://<your-username>.github.io/terminalportfolio/**
 
 ---
 
