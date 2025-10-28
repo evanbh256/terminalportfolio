@@ -1,5 +1,5 @@
 ﻿import { Linkedin, Mail, Instagram } from "lucide-react";
-import exampleImage from 'figma:asset/e2c3458967e1d5a95c7f31f1e53a1815b5a85d10.png';
+import { ImageWithFallback } from "./figma/ImageWithFallback";
 
 interface NavigationProps {
   activeSection: string;
@@ -19,8 +19,8 @@ export function Navigation({ activeSection, onNavigate }: NavigationProps) {
     <aside className="fixed left-0 top-0 h-screen w-64 bg-black/40 backdrop-blur-sm border-r border-green-900/30 p-6 flex flex-col">
       <div className="mb-8 border border-green-900/30 rounded-lg p-4 bg-black/20">
         <div className="flex items-center gap-3 mb-2">
-          <img 
-            src={exampleImage} 
+          <ImageWithFallback 
+            src="https://github.com/evanbh256.png" 
             alt="Profile" 
             className="w-12 h-12 rounded-full object-cover"
           />

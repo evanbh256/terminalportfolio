@@ -1,4 +1,5 @@
 ﻿import { useState, useRef, useEffect } from "react";
+import { Instagram, Linkedin, Github } from "lucide-react";
 
 interface HeroProps {
   onNavigate: (section: string) => void;
@@ -11,6 +12,10 @@ interface HistoryEntry {
 
 export function Hero({ onNavigate }: HeroProps) {
   const [input, setInput] = useState("");
+  
+  const handleInitialDirectoryClick = (dir: string) => {
+    onNavigate(dir);
+  };
   const [history, setHistory] = useState<HistoryEntry[]>([
     {
       command: "whoami",
@@ -32,19 +37,39 @@ export function Hero({ onNavigate }: HeroProps) {
             </div>
             <div className="flex items-center gap-3">
               <span className="text-blue-400">drwxr-xr-x</span>
-              <span className="text-cyan-400">about/</span>
+              <button
+                onClick={() => handleInitialDirectoryClick("about")}
+                className="text-cyan-400 hover:text-cyan-300 hover:underline cursor-pointer transition-colors"
+              >
+                about/
+              </button>
             </div>
             <div className="flex items-center gap-3">
               <span className="text-blue-400">drwxr-xr-x</span>
-              <span className="text-cyan-400">works/</span>
+              <button
+                onClick={() => handleInitialDirectoryClick("works")}
+                className="text-cyan-400 hover:text-cyan-300 hover:underline cursor-pointer transition-colors"
+              >
+                works/
+              </button>
             </div>
             <div className="flex items-center gap-3">
               <span className="text-blue-400">drwxr-xr-x</span>
-              <span className="text-cyan-400">experience/</span>
+              <button
+                onClick={() => handleInitialDirectoryClick("experience")}
+                className="text-cyan-400 hover:text-cyan-300 hover:underline cursor-pointer transition-colors"
+              >
+                experience/
+              </button>
             </div>
             <div className="flex items-center gap-3">
               <span className="text-blue-400">drwxr-xr-x</span>
-              <span className="text-cyan-400">contact/</span>
+              <button
+                onClick={() => handleInitialDirectoryClick("contact")}
+                className="text-cyan-400 hover:text-cyan-300 hover:underline cursor-pointer transition-colors"
+              >
+                contact/
+              </button>
             </div>
           </div>
         </div>
@@ -87,6 +112,15 @@ export function Hero({ onNavigate }: HeroProps) {
         </div>
       );
     } else if (trimmedCmd === "ls" || trimmedCmd === "ls -la" || trimmedCmd === "ls -l") {
+      const handleDirectoryClick = (dir: string) => {
+        setInput(`cd ${dir}`);
+        setTimeout(() => {
+          handleCommand(`cd ${dir}`);
+          setHistory(prev => [...prev, { command: `cd ${dir}`, output: null }]);
+          setInput("");
+        }, 0);
+      };
+
       output = (
         <div className="text-gray-300 mt-1 ml-4">
           <div className="space-y-1">
@@ -96,19 +130,39 @@ export function Hero({ onNavigate }: HeroProps) {
             </div>
             <div className="flex items-center gap-3">
               <span className="text-blue-400">drwxr-xr-x</span>
-              <span className="text-cyan-400">about/</span>
+              <button
+                onClick={() => handleDirectoryClick("about")}
+                className="text-cyan-400 hover:text-cyan-300 hover:underline cursor-pointer transition-colors"
+              >
+                about/
+              </button>
             </div>
             <div className="flex items-center gap-3">
               <span className="text-blue-400">drwxr-xr-x</span>
-              <span className="text-cyan-400">works/</span>
+              <button
+                onClick={() => handleDirectoryClick("works")}
+                className="text-cyan-400 hover:text-cyan-300 hover:underline cursor-pointer transition-colors"
+              >
+                works/
+              </button>
             </div>
             <div className="flex items-center gap-3">
               <span className="text-blue-400">drwxr-xr-x</span>
-              <span className="text-cyan-400">experience/</span>
+              <button
+                onClick={() => handleDirectoryClick("experience")}
+                className="text-cyan-400 hover:text-cyan-300 hover:underline cursor-pointer transition-colors"
+              >
+                experience/
+              </button>
             </div>
             <div className="flex items-center gap-3">
               <span className="text-blue-400">drwxr-xr-x</span>
-              <span className="text-cyan-400">contact/</span>
+              <button
+                onClick={() => handleDirectoryClick("contact")}
+                className="text-cyan-400 hover:text-cyan-300 hover:underline cursor-pointer transition-colors"
+              >
+                contact/
+              </button>
             </div>
           </div>
         </div>
@@ -123,7 +177,7 @@ export function Hero({ onNavigate }: HeroProps) {
           <div>Host: <span className="text-yellow-400">127.0.0.1</span></div>
           <div>Uptime: {Math.floor((currentDate.getTime() - new Date(currentDate.getFullYear(), 0, 0).getTime()) / (1000 * 60 * 60 * 24))} days</div>
           <div>Shell: bash 5.2.26</div>
-          <div className="text-purple-400 mt-2 font-bold">â˜• Powered by Coffee</div>
+          <div className="text-purple-400 mt-2 font-bold">☕ Powered by Coffee</div>
         </div>
       );
     } else if (trimmedCmd.startsWith("cd ")) {
@@ -193,8 +247,37 @@ export function Hero({ onNavigate }: HeroProps) {
         {/* Terminal Window */}
         <div className="bg-black/90 backdrop-blur-sm border border-green-900/50 rounded-lg overflow-hidden shadow-2xl shadow-green-900/20">
           {/* Terminal Header */}
-          <div className="bg-gray-900/80 border-b border-green-900/30 px-4 py-2 flex items-center gap-2">
+          <div className="bg-gray-900/80 border-b border-green-900/30 px-4 py-2 flex items-center justify-between gap-2">
             <span className="text-gray-400 text-sm font-mono">evan@portfolio:~$</span>
+            <div className="flex items-center gap-3">
+              <a
+                href="https://www.instagram.com/evan_256/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-pink-400 transition-colors"
+                aria-label="Instagram"
+              >
+                <Instagram className="w-4 h-4" />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/evan-bhandari-aa7b19218/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-blue-400 transition-colors"
+                aria-label="LinkedIn"
+              >
+                <Linkedin className="w-4 h-4" />
+              </a>
+              <a
+                href="https://github.com/evanbh256"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-green-400 transition-colors"
+                aria-label="GitHub"
+              >
+                <Github className="w-4 h-4" />
+              </a>
+            </div>
           </div>
           
           {/* Terminal Body */}
