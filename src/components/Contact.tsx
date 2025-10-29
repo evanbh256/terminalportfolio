@@ -49,7 +49,7 @@ export function Contact() {
       
       <div className="grid md:grid-cols-2 gap-8">
           <div className="space-y-6">
-            <div className="bg-black/40 backdrop-blur-sm border border-green-900/30 rounded-lg p-8">
+            <div className="bg-background/40 backdrop-blur-sm border border-green-900/30 rounded-lg p-8">
               <h3 className="text-amber-200 mb-4">Get in Touch</h3>
               <p className="text-gray-300 mb-6">
                 I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision. Feel free to reach out!
@@ -62,7 +62,7 @@ export function Contact() {
                     href={link.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-4 p-4 bg-black/30 rounded-lg border border-green-900/20 hover:border-green-900/50 transition-all group"
+                    className="flex items-center gap-4 p-4 bg-background/30 rounded-lg border border-green-900/20 hover:border-green-900/50 transition-all group"
                   >
                     <link.icon className={`w-5 h-5 ${link.color}`} />
                     <div>
@@ -77,7 +77,7 @@ export function Contact() {
             </div>
           </div>
 
-          <div className="bg-black/40 backdrop-blur-sm border border-green-900/30 rounded-lg p-8">
+          <div className="bg-background/40 backdrop-blur-sm border border-green-900/30 rounded-lg p-8">
             <h3 className="text-amber-200 mb-4">Send a Message</h3>
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
@@ -89,7 +89,7 @@ export function Contact() {
                   type="text"
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  className="bg-black/30 border-green-900/30 text-gray-300 focus:border-green-700"
+                  className="bg-background/30 border-green-900/30 text-gray-300 focus:border-green-700"
                   required
                 />
               </div>
@@ -103,7 +103,7 @@ export function Contact() {
                   type="email"
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  className="bg-black/30 border-green-900/30 text-gray-300 focus:border-green-700"
+                  className="bg-background/30 border-green-900/30 text-gray-300 focus:border-green-700"
                   required
                 />
               </div>
@@ -116,7 +116,7 @@ export function Contact() {
                   id="message"
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  className="bg-black/30 border-green-900/30 text-gray-300 focus:border-green-700 min-h-32"
+                  className="bg-background/30 border-green-900/30 text-gray-300 focus:border-green-700 min-h-32"
                   required
                 />
               </div>

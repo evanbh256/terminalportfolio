@@ -22,7 +22,7 @@ export function Window({ title, onClose, children }: WindowProps) {
   }, [onClose]);
 
   return (
-    <div className={`fixed bg-black/95 backdrop-blur-sm border border-green-900/50 rounded-lg overflow-hidden shadow-2xl shadow-green-900/20 ${
+    <div className={`fixed frosty-window rounded-lg overflow-hidden ${
       isMaximized 
         ? "inset-4" 
         : "top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] max-w-4xl max-h-[85vh]"

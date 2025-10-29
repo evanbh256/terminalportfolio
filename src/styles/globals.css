@@ -4,12 +4,7 @@
 
 :root {
   --font-size: 16px;
-  /* base background color (used as fallback) */
-  --background: #f6f7f9;
-  /* layered subtle gradients (very low opacity so not bright) */
-  --bg-gradient-1: radial-gradient(circle at 10% 10%, rgba(99,102,241,0.04) 0%, transparent 30%);
-  --bg-gradient-2: radial-gradient(circle at 90% 90%, rgba(16,185,129,0.03) 0%, transparent 30%);
-  --bg-gradient-3: linear-gradient(180deg, rgba(2,6,23,0.02), rgba(255,255,255,0));
+  --background: #001E26;
   --foreground: oklch(0.145 0 0);
   --card: #ffffff;
   --card-foreground: oklch(0.145 0 0);
@@ -49,11 +44,7 @@
 }
 
 .dark {
-  /* deep muted base for dark mode */
-  --background: #071020;
-  --bg-gradient-1: radial-gradient(circle at 15% 20%, rgba(56,189,248,0.06) 0%, transparent 30%);
-  --bg-gradient-2: radial-gradient(circle at 85% 80%, rgba(16,185,129,0.04) 0%, transparent 30%);
-  --bg-gradient-3: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.2));
+  --background: oklch(0.145 0 0);
   --foreground: oklch(0.985 0 0);
   --card: oklch(0.145 0 0);
   --card-foreground: oklch(0.985 0 0);
@@ -103,12 +94,7 @@
   }
 
   body {
-    /* layered background: base color plus subtle gradients (kept low opacity to avoid brightness) */
     background-color: var(--background);
-    background-image: var(--bg-gradient-1), var(--bg-gradient-2), var(--bg-gradient-3);
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
     color: var(--foreground);
     min-height: 100vh;
   }
@@ -195,7 +181,7 @@ html {
 
 /* Techy animated grid background */
 .techy-background {
-  background-color: #000000;
+  background-color: var(--background);
   background-image: 
     linear-gradient(rgba(16, 185, 129, 0.05) 1px, transparent 1px),
     linear-gradient(90deg, rgba(16, 185, 129, 0.05) 1px, transparent 1px),
@@ -204,4 +190,25 @@ html {
   background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
   background-position: -2px -2px, -2px -2px, -1px -1px, -1px -1px;
   animation: gridMove 20s linear infinite;
+}
+
+@layer components {
+  /* Frosty glass window used by window-like UI elements */
+  .frosty-window {
+    /* translucent frosty surface */
+    background-color: rgba(255, 255, 255, 0.03); /* fallback for no backdrop-filter */
+    background-image: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+    border: 1px solid rgba(255,255,255,0.06);
+    box-shadow: 0 8px 30px rgba(2,6,23,0.6), inset 0 1px 0 rgba(255,255,255,0.02);
+    backdrop-filter: blur(8px) saturate(120%);
+    -webkit-backdrop-filter: blur(8px) saturate(120%);
+    color: var(--foreground);
+  }
+
+  /* Slight variation for a stronger frosty look on light backgrounds */
+  .frosty-window--light {
+    background-color: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    box-shadow: 0 10px 40px rgba(2,6,23,0.45), inset 0 1px 0 rgba(255,255,255,0.05);
+  }
 }

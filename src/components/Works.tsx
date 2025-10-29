@@ -38,7 +38,7 @@ export function Works() {
           {projects.map((project) => (
             <div
               key={project.title}
-              className="bg-black/40 backdrop-blur-sm border border-green-900/30 rounded-lg overflow-hidden hover:border-green-700/50 transition-all group"
+              className="bg-background/40 backdrop-blur-sm border border-green-900/30 rounded-lg overflow-hidden hover:border-green-700/50 transition-all group"
             >
               <div className="relative h-48 overflow-hidden">
                 <ImageWithFallback

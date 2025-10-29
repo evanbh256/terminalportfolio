@@ -57,7 +57,7 @@ export function Experience() {
           {experiences.map((exp, index) => (
             <div
               key={index}
-              className="bg-black/40 backdrop-blur-sm border border-green-900/30 rounded-lg p-6 hover:border-green-700/50 transition-all"
+              className="bg-background/40 backdrop-blur-sm border border-green-900/30 rounded-lg p-6 hover:border-green-700/50 transition-all"
             >
               <div className="flex items-start gap-4">
                 <div className={`p-3 rounded-lg ${

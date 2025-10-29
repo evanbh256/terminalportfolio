@@ -47,7 +47,7 @@ export default function App() {
 
       {/* Overlay for open windows */}
       {openWindows.length > 0 && (
-        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40" />
+  <div className="fixed inset-0 bg-background/50 backdrop-blur-sm z-40" />
       )}
 
       {/* Windows */}

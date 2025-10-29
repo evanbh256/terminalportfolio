@@ -259,7 +259,7 @@ export function Hero({ onNavigate }: HeroProps) {
     <section id="home" className="min-h-screen flex items-center justify-center py-20">
       <div className="max-w-4xl w-full">
         {/* Terminal Window */}
-        <div className="bg-black/90 backdrop-blur-sm border border-green-900/50 rounded-lg overflow-hidden shadow-2xl shadow-green-900/20">
+  <div className="bg-background/90 backdrop-blur-sm border border-green-900/50 rounded-lg overflow-hidden shadow-2xl shadow-green-900/20">
           {/* Terminal Header */}
           <div className="bg-gray-900/80 border-b border-green-900/30 px-4 py-2 flex items-center justify-between gap-2">
             <span className="text-gray-400 text-sm font-mono">evan@portfolio:~$</span>

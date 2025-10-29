@@ -16,8 +16,8 @@ export function Navigation({ activeSection, onNavigate }: NavigationProps) {
   ];
 
   return (
-    <aside className="fixed left-0 top-0 h-screen w-64 bg-black/40 backdrop-blur-sm border-r border-green-900/30 p-6 flex flex-col">
-      <div className="mb-8 border border-green-900/30 rounded-lg p-4 bg-black/20">
+  <aside className="fixed left-0 top-0 h-screen w-64 bg-background/40 backdrop-blur-sm border-r border-green-900/30 p-6 flex flex-col">
+  <div className="mb-8 border border-green-900/30 rounded-lg p-4 bg-background/20">
         <div className="flex items-center gap-3 mb-2">
           <ImageWithFallback 
             src="https://github.com/evanbh256.png" 
