@@ -4,7 +4,7 @@ import path from "node:path";
 
 export default defineConfig({
   plugins: [react()],
-  base: "/terminalportfolio/",  // <- repo name
+  base: "/",  // <- repo name
   resolve: {
     alias: { "@": path.resolve(__dirname, "src") }, // optional, helps with "@/..."
   },
