@@ -1,7 +1,7 @@
 ﻿import { useState } from "react";
 import { Hero } from "./components/Hero";
 import { About } from "./components/About";
-import { Works } from "./components/Works";
+// import { Works } from "./components/Works";
 import { Experience } from "./components/Experience";
 import { Contact } from "./components/Contact";
 import { Window } from "./components/Window";
@@ -28,7 +28,7 @@ export default function App() {
   const getWindowTitle = (section: string) => {
     const titles: { [key: string]: string } = {
       about: "evan@portfolio:~/about$",
-      works: "evan@portfolio:~/works$",
+      // works: "evan@portfolio:~/works$",
       experience: "evan@portfolio:~/experience$",
       contact: "evan@portfolio:~/contact$",
     };
@@ -56,11 +56,11 @@ export default function App() {
           <About />
         </Window>
       )}
-      {openWindows.includes("works") && (
+      {/* {openWindows.includes("works") && (
         <Window title={getWindowTitle("works")} onClose={() => handleCloseWindow("works")}>
           <Works />
         </Window>
-      )}
+      )} */}
       {openWindows.includes("experience") && (
         <Window title={getWindowTitle("experience")} onClose={() => handleCloseWindow("experience")}>
           <Experience />

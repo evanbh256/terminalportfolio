@@ -44,7 +44,7 @@ export function Hero({ onNavigate }: HeroProps) {
                 about/
               </button>
             </div>
-            <div className="flex items-center gap-3">
+            {/* <div className="flex items-center gap-3">
               <span className="text-blue-400">drwxr-xr-x</span>
               <button
                 onClick={() => handleInitialDirectoryClick("works")}
@@ -52,7 +52,7 @@ export function Hero({ onNavigate }: HeroProps) {
               >
                 works/
               </button>
-            </div>
+            </div> */}
             <div className="flex items-center gap-3">
               <span className="text-blue-400">drwxr-xr-x</span>
               <button
@@ -100,7 +100,7 @@ export function Hero({ onNavigate }: HeroProps) {
           <div className="ml-2 mt-1 space-y-1">
             <div><span className="text-green-400">whoami</span> - Display information about me</div>
             <div><span className="text-green-400">ls</span> - List available sections</div>
-            <div><span className="text-green-400">cd [section]</span> - Navigate to a section (about/works/experience/contact)</div>
+            <div><span className="text-green-400">cd [section]</span> - Navigate to a section (about/experience/contact)</div>
             <div><span className="text-green-400">uname -a</span> - Print system information</div>
             <div><span className="text-green-400">clear</span> - Clear the terminal</div>
             <div><span className="text-green-400">help</span> - Show this help message</div>
@@ -140,7 +140,7 @@ export function Hero({ onNavigate }: HeroProps) {
                 about/
               </button>
             </div>
-            <div className="flex items-center gap-3">
+            {/* <div className="flex items-center gap-3">
               <span className="text-blue-400">drwxr-xr-x</span>
               <button
                 onClick={() => handleDirectoryClick("works")}
@@ -148,7 +148,7 @@ export function Hero({ onNavigate }: HeroProps) {
               >
                 works/
               </button>
-            </div>
+            </div> */}
             <div className="flex items-center gap-3">
               <span className="text-blue-400">drwxr-xr-x</span>
               <button
@@ -196,7 +196,7 @@ export function Hero({ onNavigate }: HeroProps) {
       );
     } else if (trimmedCmd.startsWith("cd ")) {
       const section = trimmedCmd.substring(3).trim().replace("/", "");
-      const validSections = ["about", "works", "experience", "contact", "home"];
+      const validSections = ["about", "experience", "contact", "home"]; // "works" removed
       
       if (validSections.includes(section)) {
         onNavigate(section);

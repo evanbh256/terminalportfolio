@@ -10,7 +10,7 @@ export function Navigation({ activeSection, onNavigate }: NavigationProps) {
   const navItems = [
     { id: "home", label: "/home" },
     { id: "about", label: "/about" },
-    { id: "works", label: "/works" },
+    // { id: "works", label: "/works" },
     { id: "experience", label: "/experience" },
     { id: "contact", label: "/contact" },
   ];
