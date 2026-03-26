@@ -1,4 +1,4 @@
-﻿import { X, Maximize2, Minimize2 } from "lucide-react";
+import { X, Maximize2, Minimize2 } from "lucide-react";
 import { useState, useEffect } from "react";
 
 interface WindowProps {
@@ -26,9 +26,9 @@ export function Window({ title, onClose, children }: WindowProps) {
       isMaximized 
         ? "inset-4" 
         : "top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] max-w-4xl max-h-[85vh]"
-    } transition-all duration-200 z-50 animate-in fade-in slide-in-from-bottom-4`}>
+    } transition-all duration-200 z-40 animate-in fade-in slide-in-from-bottom-4`}>
       {/* Window Header */}
-      <div className="bg-gray-900/80 border-b border-green-900/30 px-4 py-2 flex items-center justify-between">
+      <div className="bg-gradient-to-r from-gray-900/80 to-gray-800/60 border-b border-white/10 px-4 py-2 flex items-center justify-between">
         <span className="text-green-400 text-sm font-mono">{title}</span>
         <div className="flex items-center gap-2">
           <button

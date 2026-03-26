@@ -20,16 +20,16 @@ export function Hero({ onNavigate }: HeroProps) {
     {
       command: "whoami",
       output: (
-        <div className="text-gray-300 mt-1 ml-4">
+        <div className="text-gray-300 mt-1 ml-2">
           <div className="mb-2">Hi, I'm Evan Bhandari!</div>
-          <div>a self-motivated computer science enthusiast looking to grow, develop, and learn.</div>
+          <div>a self-motivated cyber enthusiast looking to grow, develop, and learn.</div>
         </div>
       ),
     },
     {
       command: "ls -la",
       output: (
-        <div className="text-gray-300 mt-1 ml-4">
+        <div className="text-gray-300 mt-1 ml-2">
           <div className="space-y-1">
             <div className="flex items-center gap-3">
               <span className="text-blue-400">drwxr-xr-x</span>
@@ -44,15 +44,15 @@ export function Hero({ onNavigate }: HeroProps) {
                 about/
               </button>
             </div>
-            {/* <div className="flex items-center gap-3">
+            <div className="flex items-center gap-3">
               <span className="text-blue-400">drwxr-xr-x</span>
               <button
                 onClick={() => handleInitialDirectoryClick("works")}
                 className="text-cyan-400 hover:text-cyan-300 hover:underline cursor-pointer transition-colors"
               >
-                works/
+                projects/
               </button>
-            </div> */}
+            </div>
             <div className="flex items-center gap-3">
               <span className="text-blue-400">drwxr-xr-x</span>
               <button
@@ -72,7 +72,7 @@ export function Hero({ onNavigate }: HeroProps) {
               </button>
             </div>
           </div>
-          <div className="mt-3 text-gray-500 text-sm italic">
+          <div className="mt-3 text-gray-800 text-sm italic">
             Enter "help" to see a list of commands
           </div>
         </div>
@@ -95,12 +95,12 @@ export function Hero({ onNavigate }: HeroProps) {
 
     if (trimmedCmd === "help") {
       output = (
-        <div className="text-gray-300 mt-1 ml-4">
+        <div className="text-gray-300 mt-1 ml-2">
           <div>Available commands:</div>
           <div className="ml-2 mt-1 space-y-1">
             <div><span className="text-green-400">whoami</span> - Display information about me</div>
             <div><span className="text-green-400">ls</span> - List available sections</div>
-            <div><span className="text-green-400">cd [section]</span> - Navigate to a section (about/experience/contact)</div>
+            <div><span className="text-green-400">cd [section]</span> - Navigate to a section (about/projects/experience/contact)</div>
             <div><span className="text-green-400">uname -a</span> - Print system information</div>
             <div><span className="text-green-400">clear</span> - Clear the terminal</div>
             <div><span className="text-green-400">help</span> - Show this help message</div>
@@ -109,9 +109,9 @@ export function Hero({ onNavigate }: HeroProps) {
       );
     } else if (trimmedCmd === "whoami") {
       output = (
-        <div className="text-gray-300 mt-1 ml-4">
+        <div className="text-gray-300 mt-1 ml-2">
           <div className="mb-2">Hi, I'm Evan Bhandari!</div>
-          <div>a self-motivated computer science enthusiast looking to grow, develop, and learn.</div>
+          <div>a self-motivated cyber enthusiast looking to grow, develop, and learn.</div>
         </div>
       );
     } else if (trimmedCmd === "ls" || trimmedCmd === "ls -la" || trimmedCmd === "ls -l") {
@@ -125,7 +125,7 @@ export function Hero({ onNavigate }: HeroProps) {
       };
 
       output = (
-        <div className="text-gray-300 mt-1 ml-4">
+        <div className="text-gray-300 mt-1 ml-2">
           <div className="space-y-1">
             <div className="flex items-center gap-3">
               <span className="text-blue-400">drwxr-xr-x</span>
@@ -140,15 +140,15 @@ export function Hero({ onNavigate }: HeroProps) {
                 about/
               </button>
             </div>
-            {/* <div className="flex items-center gap-3">
+            <div className="flex items-center gap-3">
               <span className="text-blue-400">drwxr-xr-x</span>
               <button
                 onClick={() => handleDirectoryClick("works")}
                 className="text-cyan-400 hover:text-cyan-300 hover:underline cursor-pointer transition-colors"
               >
-                works/
+                projects/
               </button>
-            </div> */}
+            </div>
             <div className="flex items-center gap-3">
               <span className="text-blue-400">drwxr-xr-x</span>
               <button
@@ -173,7 +173,7 @@ export function Hero({ onNavigate }: HeroProps) {
     } else if (trimmedCmd === "uname -a" || trimmedCmd === "uname") {
       const currentDate = new Date();
       output = (
-        <div className="text-gray-300 mt-1 ml-4 space-y-1">
+        <div className="text-gray-300 mt-1 ml-2 space-y-1">
           <div className="text-cyan-400">Portfolio OS 2.0.25 #evanbh256</div>
           <div>Node: <span className="text-green-400">evanbh256</span></div>
           <div>Kernel: Linux 6.9.0-portfolio x86_64</div>
@@ -196,19 +196,19 @@ export function Hero({ onNavigate }: HeroProps) {
       );
     } else if (trimmedCmd.startsWith("cd ")) {
       const section = trimmedCmd.substring(3).trim().replace("/", "");
-      const validSections = ["about", "experience", "contact", "home"]; // "works" removed
+      const validSections = ["about", "works", "experience", "contact", "home"];
       
       if (validSections.includes(section)) {
         onNavigate(section);
         if (section === "home") {
           output = (
-            <div className="text-gray-300 mt-1 ml-4">
+            <div className="text-gray-300 mt-1 ml-2">
               Closing all windows...
             </div>
           );
         } else {
           output = (
-            <div className="text-gray-300 mt-1 ml-4">
+            <div className="text-gray-300 mt-1 ml-2">
               Opening {section}/ window...
             </div>
           );
@@ -216,13 +216,13 @@ export function Hero({ onNavigate }: HeroProps) {
       } else if (section === ".." || section === "") {
         onNavigate("home");
         output = (
-          <div className="text-gray-300 mt-1 ml-4">
+          <div className="text-gray-300 mt-1 ml-2">
             Closing all windows...
           </div>
         );
       } else {
         output = (
-          <div className="text-red-400 mt-1 ml-4">
+          <div className="text-red-400 mt-1 ml-2">
             bash: cd: {section}: No such directory
           </div>
         );
@@ -234,7 +234,7 @@ export function Hero({ onNavigate }: HeroProps) {
       return;
     } else {
       output = (
-        <div className="text-red-400 mt-1 ml-4">
+        <div className="text-red-400 mt-1 ml-2">
           bash: {cmd}: command not found. Type 'help' for available commands.
         </div>
       );
@@ -256,13 +256,13 @@ export function Hero({ onNavigate }: HeroProps) {
   };
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center py-20">
+    <section id="home" className="flex items-center justify-center flex-1">
       <div className="max-w-4xl w-full">
         {/* Terminal Window */}
-  <div className="bg-background/90 backdrop-blur-sm border border-green-900/50 rounded-lg overflow-hidden shadow-2xl shadow-green-900/20">
+  <div className="frosty-window rounded-lg overflow-hidden shadow-2xl">
           {/* Terminal Header */}
-          <div className="bg-gray-900/80 border-b border-green-900/30 px-4 py-2 flex items-center justify-between gap-2">
-            <span className="text-gray-400 text-sm font-mono">evan@portfolio:~$</span>
+          <div className="bg-gradient-to-r from-gray-900/80 to-gray-800/60 px-4 py-2.5 flex items-center justify-between gap-2 border-b border-white/10">
+            <span className="text-gray-400 text-xs font-mono">evan@portfolio:~$</span>
             <div className="flex items-center gap-3">
               <a
                 href="https://www.instagram.com/evan_256/"
@@ -271,7 +271,7 @@ export function Hero({ onNavigate }: HeroProps) {
                 className="text-gray-400 hover:text-pink-400 transition-colors"
                 aria-label="Instagram"
               >
-                <Instagram className="w-4 h-4" />
+                <Instagram className="w-3 h-3" />
               </a>
               <a
                 href="https://www.linkedin.com/in/evan-bhandari-aa7b19218/"
@@ -280,7 +280,7 @@ export function Hero({ onNavigate }: HeroProps) {
                 className="text-gray-400 hover:text-blue-400 transition-colors"
                 aria-label="LinkedIn"
               >
-                <Linkedin className="w-4 h-4" />
+                <Linkedin className="w-3 h-3" />
               </a>
               <a
                 href="https://github.com/evanbh256"
@@ -289,7 +289,7 @@ export function Hero({ onNavigate }: HeroProps) {
                 className="text-gray-400 hover:text-green-400 transition-colors"
                 aria-label="GitHub"
               >
-                <Github className="w-4 h-4" />
+                <Github className="w-3 h-3" />
               </a>
             </div>
           </div>
@@ -298,13 +298,13 @@ export function Hero({ onNavigate }: HeroProps) {
           <div 
             ref={terminalRef}
             onClick={handleTerminalClick}
-            className="p-6 font-mono text-sm max-h-[70vh] overflow-y-auto cursor-text"
+            className="p-3 font-mono text-xs max-h-[55vh] overflow-y-auto cursor-text"
           >
             {/* Command History */}
             {history.map((entry, index) => (
-              <div key={index} className="mb-4">
+              <div key={index} className="mb-2">
                 <div className="text-green-400">
-                  <span className="text-gray-500">evan@portfolio</span>
+                  <span className="text-yellow-200">evan@portfolio</span>
                   <span className="text-gray-400">:</span>
                   <span className="text-blue-400">~</span>
                   <span className="text-gray-400">$ </span>
@@ -316,7 +316,7 @@ export function Hero({ onNavigate }: HeroProps) {
 
             {/* Input Line */}
             <form onSubmit={handleSubmit} className="flex items-center text-green-400">
-              <span className="text-gray-500">evan@portfolio</span>
+              <span className="text-yellow-200">evan@portfolio</span>
               <span className="text-gray-400">:</span>
               <span className="text-blue-400">~</span>
               <span className="text-gray-400">$ </span>

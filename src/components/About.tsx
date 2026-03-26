@@ -1,4 +1,4 @@
-﻿import {
+import {
   GraduationCap,
   Code2,
   Palette,
@@ -15,7 +15,7 @@ export function About() {
         "B.S. Cyber Operations, Minor in Network Security Administration (Honors)",
       period: "Aug 2024 – Dec 2027",
       details: [
-        "Relevant Coursework: Operating Environments, Networking, Software Security, Data Structures",
+        "GPA: 3.73",
         "Recipient of DSU Rising Scholarship and DSU Champion Scholarship",
       ],
     },
@@ -33,27 +33,41 @@ export function About() {
       "Python",
       "C",
       "C++",
+      "NASM Assembly",
       "HTML",
       "CSS",
       "JavaScript",
     ],
-    Design: [
+    "Operating Systems": [
+      "Linux (Kali, Debian, Ubuntu)",
+      "Windows",
+      "Windows Server",
+      "FreeDOS",
+      "MacOS",
+    ],
+    "Security Tools": [
+      "Metasploit",
+      "John the Ripper",
+      "Hashcat",
+      "Wireshark",
+      "Nmap",
+    ],
+    "Dev Tools": [
+      "Git",
+      "GitHub",
+      "NPM",
+      "Cloudflare",
+      "VS Code",
+      "PowerShell",
+      "VirtualBox",
+    ],
+    "Creative Suite": [
       "Photoshop",
       "Premiere Pro",
       "After Effects",
-      "Illustrator",
-      "Canva",
-      "Lightroom",
+      "Figma",
+      "Affinity",
     ],
-    Tools: [
-      "Git",
-      "GitHub",
-      "VS Code",
-      "Visual Studio",
-      "PowerShell",
-      "WordPress",
-    ],
-    "Operating Systems": ["Linux", "Windows", "MacOS"],
   };
 
   return (
@@ -64,7 +78,7 @@ export function About() {
 
       <div className="space-y-6">
         {/* Bio Section */}
-  <div className="bg-background/40 backdrop-blur-sm border border-green-900/30 rounded-lg p-8">
+  <div className="frosty-window rounded-lg p-6">
           <div className="flex flex-col md:flex-row gap-8 items-center">
         <img
           src="img/evan.jpg"
@@ -73,7 +87,7 @@ export function About() {
         />
         <div>
           <p className="text-gray-300 mb-4">
-            A self-motivated computer science enthusiast looking
+            A self-motivated Cyber enthusiast looking
             to grow, develop, and learn. I have been involved in
             many roles, and am always open to any new
             opportunities waiting for me.
@@ -88,7 +102,7 @@ export function About() {
         </div>
 
         {/* Education Section */}
-  <div className="bg-background/40 backdrop-blur-sm border border-green-900/30 rounded-lg p-8">
+  <div className="frosty-window rounded-lg p-6">
           <h3 className="text-amber-200 mb-6 flex items-center gap-2">
             <GraduationCap className="w-5 h-5" />
             Education
@@ -99,7 +113,7 @@ export function About() {
                 key={index}
                 className={
                   index > 0
-                    ? "pt-6 border-t border-green-900/20"
+                    ? "pt-6 border-t border-white/10"
                     : ""
                 }
               >
@@ -120,7 +134,7 @@ export function About() {
                   {edu.degree}
                 </p>
                 {edu.details.length > 0 && (
-                  <ul className="space-y-1 ml-4">
+                  <ul className="space-y-1 ml-2">
                     {edu.details.map((detail, idx) => (
                       <li
                         key={idx}
@@ -137,7 +151,7 @@ export function About() {
         </div>
 
         {/* Technical Skills Section */}
-  <div className="bg-background/40 backdrop-blur-sm border border-green-900/30 rounded-lg p-8">
+  <div className="frosty-window rounded-lg p-8">
           <h3 className="text-amber-200 mb-6 flex items-center gap-2">
             <Code2 className="w-5 h-5" />
             Technical Skills
@@ -153,7 +167,7 @@ export function About() {
                     {skills.map((skill) => (
                       <span
                         key={skill}
-                        className="text-xs px-3 py-1 bg-green-900/20 text-gray-300 rounded-full border border-green-900/30"
+                        className="text-xs px-3 py-1 bg-white/5 text-green-400 rounded-full border border-white/10"
                       >
                         {skill}
                       </span>

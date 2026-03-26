@@ -1,4 +1,4 @@
-﻿import { Briefcase, Users } from "lucide-react";
+import { Briefcase, Users } from "lucide-react";
 
 export function Experience() {
   const experiences = [
@@ -8,8 +8,26 @@ export function Experience() {
       organization: "Dakota State University - Residence Life",
       location: "Madison, SD",
       period: "Aug 2025 – Present",
-      description: "Mentor and support 40+ residents; plan programs to enhance community engagement and address resident concerns.",
+      description: "Leading community safety and emergency response for 40+ residents, facilitating conflict resolution and policy compliance.",
       skills: ["Leadership", "Community Building", "Conflict Resolution"],
+    },
+    {
+      type: "work",
+      title: "Barista",
+      organization: "Starbucks - Dakota State University",
+      location: "Madison, SD",
+      period: "Feb 2026 – Present",
+      description: "Executing high-volume orders with strict adherence to standardized procedures and technical specifications.",
+      skills: ["Customer Service", "Order Management", "Time Management"],
+    },
+    {
+      type: "work",
+      title: "Food Service Worker",
+      organization: "Sodexo - Dakota State University",
+      location: "Madison, SD",
+      period: "Dec 2024 – Feb 2026",
+      description: "Maintained consistent service output for 500+ daily users, ensuring compliance with health and safety protocols.",
+      skills: ["Food Service", "Sanitation", "Customer Service"],
     },
     {
       type: "work",
@@ -17,17 +35,8 @@ export function Experience() {
       organization: "Encore Media",
       location: "Kathmandu, Nepal",
       period: "Aug 2023 – Apr 2024",
-      description: "Produced 10+ professional videos using Premiere Pro and After Effects; created graphic assets in Photoshop and Canva. Managed WordPress website development and updates for multiple clients. Implemented SEO and digital marketing strategies, delivering reports that improved rankings and engagement.",
-      skills: ["Premiere Pro", "After Effects", "Photoshop", "WordPress", "SEO"],
-    },
-    {
-      type: "work",
-      title: "Social Media Intern",
-      organization: "Friend Of Nature",
-      location: "Kathmandu, Nepal",
-      period: "Jan 2022",
-      description: "Audited organization's website and social media presence; compiled improvement report with actionable strategies. Recommended design, content, and engagement initiatives to expand outreach.",
-      skills: ["Social Media", "Content Strategy", "Analytics"],
+      description: "Managed the full development lifecycle for 10-15 WordPress client websites. Developed digital marketing campaigns driving social media engagement to over 40,000 views. Produced 20+ professional video assets using Premiere Pro and After Effects.",
+      skills: ["Premiere Pro", "After Effects", "WordPress", "Figma", "Digital Marketing"],
     },
     {
       type: "leadership",
@@ -35,7 +44,7 @@ export function Experience() {
       organization: "Dakota State University",
       location: "Madison, SD",
       period: "Aug 2025 – Present",
-      description: "Lead cultural initiatives and campus events to foster international engagement among 200+ students.",
+      description: "Lead cultural initiatives and campus-wide events to foster engagement among a diverse body of 200+ international students.",
       skills: ["Leadership", "Event Planning", "Cultural Engagement"],
     },
     {
@@ -44,7 +53,7 @@ export function Experience() {
       organization: "Dakota State University",
       location: "Madison, SD",
       period: "Sep 2024 – May 2025",
-      description: "Organized weekly council meetings; addressed resident issues and coordinated events to build community spirit.",
+      description: "Facilitated weekly council meetings to address resident concerns and coordinated budget/planning for community events.",
       skills: ["Organization", "Communication", "Event Coordination"],
     },
   ];
@@ -57,7 +66,7 @@ export function Experience() {
           {experiences.map((exp, index) => (
             <div
               key={index}
-              className="bg-background/40 backdrop-blur-sm border border-green-900/30 rounded-lg p-6 hover:border-green-700/50 transition-all"
+              className="frosty-window rounded-lg p-6 hover:bg-white/10 transition-all"
             >
               <div className="flex items-start gap-4">
                 <div className={`p-3 rounded-lg ${
@@ -68,10 +77,10 @@ export function Experience() {
                     : "bg-blue-900/20 text-blue-400"
                 } border ${
                   exp.type === "work"
-                    ? "border-green-900/50"
+                    ? "border-white/10"
                     : exp.type === "leadership"
-                    ? "border-purple-900/50"
-                    : "border-blue-900/50"
+                    ? "border-white/10"
+                    : "border-white/10"
                 }`}>
                   {exp.type === "work" ? (
                     <Briefcase className="w-6 h-6" />
@@ -96,7 +105,7 @@ export function Experience() {
                     {exp.skills.map((skill) => (
                       <span
                         key={skill}
-                        className="text-xs px-3 py-1 bg-green-900/20 text-green-400 rounded-full border border-green-900/30"
+                        className="text-xs px-3 py-1 bg-white/5 text-green-400 rounded-full border border-white/10"
                       >
                         {skill}
                       </span>
