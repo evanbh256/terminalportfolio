@@ -32,10 +32,8 @@ export function Contact() {
       
       <div>
         <div className="frosty-window rounded-lg p-8">
-          <h3 className="text-amber-200 mb-4">Get in Touch</h3>
-          <p className="text-gray-300 mb-6">
-            I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision. Feel free to reach out!
-          </p>
+          <h3 className="text-amber-200 text-lg font-semibold mb-4">Get in Touch</h3>
+
           
           <div className="space-y-4">
             {contactLinks.map((link) => (
@@ -48,8 +46,8 @@ export function Contact() {
               >
                 <link.icon className={`w-5 h-5 ${link.color}`} />
                 <div>
-                  <p className="text-gray-400 text-sm">{link.label}</p>
-                  <p className="text-gray-300 group-hover:text-green-400 transition-colors">
+                  <p className="text-gray-300 text-sm font-medium">{link.label}</p>
+                  <p className="text-white font-medium group-hover:text-green-400 transition-colors">
                     {link.value}
                   </p>
                 </div>

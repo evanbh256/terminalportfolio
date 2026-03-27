@@ -80,23 +80,33 @@ export function About() {
         {/* Bio Section */}
   <div className="frosty-window rounded-lg p-6">
           <div className="flex flex-col md:flex-row gap-8 items-center">
-        <img
-          src="/img/evan.jpg"
-          alt="Evan's Photo"
-          className="w-48 h-48 rounded-lg object-cover"
-        />
         <div>
-          <p className="text-gray-300 mb-4">
-            A self-motivated Cyber enthusiast looking
-            to grow, develop, and learn. I have been involved in
-            many roles, and am always open to any new
-            opportunities waiting for me.
-          </p>
-          <p className="text-gray-300">
-            Outside of class you will find me organizing
-            student events, doing Capture The Flags, Filming / editing 
-            stories that matter and drinking coffee.
-          </p>
+          <h3 className="text-amber-200 text-lg font-semibold mb-4">Who I Am</h3>
+          <ul className="space-y-2 mb-4">
+            <li className="text-white flex items-start gap-2">
+              <span className="text-green-400 mt-1">•</span>
+              <span>Self-motivated Cyber enthusiast passionate about growing and learning</span>
+            </li>
+            <li className="text-white flex items-start gap-2">
+              <span className="text-green-400 mt-1">•</span>
+              <span>Experienced in multiple roles with openness to new opportunities</span>
+            </li>
+          </ul>
+          <h4 className="text-green-400 font-semibold mb-2">Outside the Classroom:</h4>
+          <ul className="space-y-1">
+            <li className="text-white flex items-start gap-2">
+              <span className="text-green-400 mt-1">•</span>
+              <span>Organizing student events and community initiatives</span>
+            </li>
+            <li className="text-white flex items-start gap-2">
+              <span className="text-green-400 mt-1">•</span>
+              <span>Competing in Capture The Flag (CTF) challenges</span>
+            </li>
+            <li className="text-white flex items-start gap-2">
+              <span className="text-green-400 mt-1">•</span>
+              <span>Brewing and enjoying coffee</span>
+            </li>
+          </ul>
         </div>
           </div>
         </div>
@@ -119,10 +129,10 @@ export function About() {
               >
                 <div className="flex justify-between items-start mb-2">
                   <div>
-                    <h4 className="text-green-400">
+                    <h4 className="text-white font-semibold text-base">
                       {edu.school}
                     </h4>
-                    <p className="text-gray-400 text-sm">
+                    <p className="text-gray-300 text-sm">
                       {edu.location}
                     </p>
                   </div>
@@ -130,7 +140,7 @@ export function About() {
                     {edu.period}
                   </span>
                 </div>
-                <p className="text-gray-300 mb-2">
+                <p className="text-white font-medium mb-2">
                   {edu.degree}
                 </p>
                 {edu.details.length > 0 && (
@@ -138,9 +148,10 @@ export function About() {
                     {edu.details.map((detail, idx) => (
                       <li
                         key={idx}
-                        className="text-gray-400 text-sm"
+                        className="text-gray-200 text-sm flex items-start gap-2"
                       >
-                        – {detail}
+                        <span className="text-green-400">•</span>
+                        <span>{detail}</span>
                       </li>
                     ))}
                   </ul>
@@ -160,14 +171,14 @@ export function About() {
             {Object.entries(technicalSkills).map(
               ([category, skills]) => (
                 <div key={category}>
-                  <h4 className="text-green-400 mb-3">
+                  <h4 className="text-white font-semibold mb-3">
                     {category}
                   </h4>
                   <div className="flex flex-wrap gap-2">
                     {skills.map((skill) => (
                       <span
                         key={skill}
-                        className="text-xs px-3 py-1 bg-white/5 text-green-400 rounded-full border border-white/10"
+                        className="text-xs px-3 py-1 bg-green-900/20 text-green-300 rounded-full border border-green-400/30"
                       >
                         {skill}
                       </span>
