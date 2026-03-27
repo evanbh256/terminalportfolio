@@ -10,7 +10,7 @@ export function Works() {
         <>Competed against professional <strong>Red Team</strong> attackers</>,
         <>Designed robust <strong>cyber defense strategies</strong> in competitive environment</>
       ],
-      image: "/img/ncae.jpg",
+      image: "./img/ncae.jpg",
       tags: ["Cybersecurity", "Defensive Strategies", "Network Security"],
     },
     {
@@ -21,7 +21,7 @@ export function Works() {
         <>Conducted end-to-end security assessments using <strong>Nmap</strong>, <strong>Wireshark</strong>, and <strong>Metasploit</strong></>,
         <>Identified, exploited, and remediated critical <strong>CVEs</strong> and <strong>cryptographic weaknesses</strong></>
       ],
-      image: "/img/kali.jpg",
+      image: "./img/kali.jpg",
       tags: ["Virtualization", "Nmap", "Wireshark", "Metasploit", "Security Analysis"],
     },
     {
@@ -32,7 +32,7 @@ export function Works() {
         <>Deployed via serverless <strong>GitHub Pages</strong> and <strong>Cloudflare</strong> pipeline</>,
         <>Implemented full version control and continuous deployment</>
       ],
-      image: "img/web.png",
+      image: "./img/web.png",
       tags: ["TypeScript", "React", "Tailwind CSS", "Figma", "Cloudflare"],
     },
   ];
