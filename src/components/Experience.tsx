@@ -1,9 +1,10 @@
-import { Briefcase, Users } from "lucide-react";
+import { Home, Coffee, UtensilsCrossed, Video, Globe } from "lucide-react";
 
 export function Experience() {
   const experiences = [
     {
       type: "work",
+      icon: "home",
       title: "Resident Assistant",
       organization: "Dakota State University - Residence Life",
       location: "Madison, SD",
@@ -13,6 +14,7 @@ export function Experience() {
     },
     {
       type: "work",
+      icon: "coffee",
       title: "Barista",
       organization: "Starbucks - Dakota State University",
       location: "Madison, SD",
@@ -22,6 +24,7 @@ export function Experience() {
     },
     {
       type: "work",
+      icon: "burger",
       title: "Food Service Worker",
       organization: "Sodexo - Dakota State University",
       location: "Madison, SD",
@@ -31,6 +34,7 @@ export function Experience() {
     },
     {
       type: "work",
+      icon: "video",
       title: "Production Intern",
       organization: "Encore Media",
       location: "Kathmandu, Nepal",
@@ -40,6 +44,7 @@ export function Experience() {
     },
     {
       type: "leadership",
+      icon: "earth",
       title: "President, International Club",
       organization: "Dakota State University",
       location: "Madison, SD",
@@ -49,6 +54,7 @@ export function Experience() {
     },
     {
       type: "leadership",
+      icon: "home",
       title: "Vice President, Residence Hall Council",
       organization: "Dakota State University",
       location: "Madison, SD",
@@ -75,18 +81,12 @@ export function Experience() {
                     : exp.type === "leadership"
                     ? "bg-purple-900/20 text-purple-400"
                     : "bg-blue-900/20 text-blue-400"
-                } border ${
-                  exp.type === "work"
-                    ? "border-white/10"
-                    : exp.type === "leadership"
-                    ? "border-white/10"
-                    : "border-white/10"
-                }`}>
-                  {exp.type === "work" ? (
-                    <Briefcase className="w-6 h-6" />
-                  ) : (
-                    <Users className="w-6 h-6" />
-                  )}
+                } border border-white/10`}>
+                  {exp.icon === "home" && <Home className="w-6 h-6" />}
+                  {exp.icon === "coffee" && <Coffee className="w-6 h-6" />}
+                  {exp.icon === "burger" && <UtensilsCrossed className="w-6 h-6" />}
+                  {exp.icon === "video" && <Video className="w-6 h-6" />}
+                  {exp.icon === "earth" && <Globe className="w-6 h-6" />}
                 </div>
                 
                 <div className="flex-1">

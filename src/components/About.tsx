@@ -81,7 +81,7 @@ export function About() {
   <div className="frosty-window rounded-lg p-6">
           <div className="flex flex-col md:flex-row gap-8 items-center">
         <img
-          src="img/evan.jpg"
+          src="/img/evan.jpg"
           alt="Evan's Photo"
           className="w-48 h-48 rounded-lg object-cover"
         />

@@ -72,7 +72,7 @@ export function Hero({ onNavigate }: HeroProps) {
               </button>
             </div>
           </div>
-          <div className="mt-3 text-gray-800 text-sm italic">
+          <div className="mt-3 text-gray-800 text-sm italic bg-yellow-200 px-2 py-1 rounded inline-block">
             Enter "help" to see a list of commands
           </div>
         </div>
@@ -116,10 +116,8 @@ export function Hero({ onNavigate }: HeroProps) {
       );
     } else if (trimmedCmd === "ls" || trimmedCmd === "ls -la" || trimmedCmd === "ls -l") {
       const handleDirectoryClick = (dir: string) => {
-        setInput(`cd ${dir}`);
         setTimeout(() => {
           handleCommand(`cd ${dir}`);
-          setHistory(prev => [...prev, { command: `cd ${dir}`, output: null }]);
           setInput("");
         }, 0);
       };
