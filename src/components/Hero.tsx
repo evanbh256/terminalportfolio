@@ -72,7 +72,7 @@ export function Hero({ onNavigate }: HeroProps) {
               </button>
             </div>
           </div>
-          <div className="mt-3 text-gray-800 text-sm italic bg-yellow-200 px-2 py-1 rounded inline-block">
+          <div className="mt-3 text-pink-300 text-sm italic inline-block">
             Enter "help" to see a list of commands
           </div>
         </div>

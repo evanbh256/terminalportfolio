@@ -72,7 +72,7 @@ export function Experience() {
           {experiences.map((exp, index) => (
             <div
               key={index}
-              className="frosty-window rounded-lg p-6 hover:bg-white/10 transition-all"
+              className="frosty-window-2 rounded-lg p-6 hover:bg-white/10 transition-all"
             >
               <div className="flex items-start gap-4">
                 <div className={`p-3 rounded-lg ${
@@ -92,11 +92,11 @@ export function Experience() {
                 <div className="flex-1">
                   <div className="flex justify-between items-start mb-2">
                     <div>
-                      <h3 className="text-amber-200">{exp.title}</h3>
-                      <p className="text-gray-400 text-sm">{exp.organization}</p>
-                      <p className="text-gray-500 text-xs">{exp.location}</p>
+                      <h3 className="text-amber-200 mb-1 font-bold">{exp.title}</h3>
+                      <p className="text-gray-300 text-sm font-semibold">{exp.organization}</p>
+                      <p className="text-gray-400 text-xs">{exp.location}</p>
                     </div>
-                    <span className="text-green-400 text-sm font-mono">{exp.period}</span>
+                    <span className="text-green-400 text-sm font-mono font-semibold">{exp.period}</span>
                   </div>
                   
                   <p className="text-gray-300 mb-4">{exp.description}</p>

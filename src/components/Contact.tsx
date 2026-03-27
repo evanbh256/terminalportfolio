@@ -31,7 +31,7 @@ export function Contact() {
       <h2 className="text-green-400 mb-8 font-mono">{'>'} Contact</h2>
       
       <div>
-        <div className="frosty-window rounded-lg p-8">
+        <div className="frosty-window-2 rounded-lg p-8">
           <h3 className="text-amber-200 text-lg font-semibold mb-4">Get in Touch</h3>
 
           

@@ -198,7 +198,7 @@ html {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  filter: blur(1px);
+  filter: blur(0px);
   z-index: 0;
   pointer-events: none;
 }
@@ -224,6 +224,16 @@ html {
   .frosty-window {
     /* translucent frosty surface */
     background-color: rgba(61, 61, 61, 0.267); /* fallback for no backdrop-filter */
+    background-image: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+    border: 1px solid rgba(255,255,255,0.06);
+    box-shadow: 0 8px 30px rgba(2,6,23,0.6), inset 0 1px 0 rgba(255,255,255,0.02);
+    backdrop-filter: blur(2px) saturate(120%);
+    -webkit-backdrop-filter: blur(2px) saturate(120%);
+    color: var(--foreground);
+  }
+    .frosty-window-2 {
+    /* translucent frosty surface */
+    background-color: #053542b4; /* fallback for no backdrop-filter */
     background-image: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
     border: 1px solid rgba(255,255,255,0.06);
     box-shadow: 0 8px 30px rgba(2,6,23,0.6), inset 0 1px 0 rgba(255,255,255,0.02);

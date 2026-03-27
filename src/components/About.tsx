@@ -78,7 +78,7 @@ export function About() {
 
       <div className="space-y-6">
         {/* Bio Section */}
-  <div className="frosty-window rounded-lg p-6">
+  <div className="frosty-window-2 rounded-lg p-6">
           <div className="flex flex-col md:flex-row gap-8 items-center">
         <div>
           <h3 className="text-amber-200 text-lg font-semibold mb-4">Who I Am</h3>
@@ -112,7 +112,7 @@ export function About() {
         </div>
 
         {/* Education Section */}
-  <div className="frosty-window rounded-lg p-6">
+  <div className="frosty-window-2 rounded-lg p-6">
           <h3 className="text-amber-200 mb-6 flex items-center gap-2">
             <GraduationCap className="w-5 h-5" />
             Education
@@ -162,7 +162,7 @@ export function About() {
         </div>
 
         {/* Technical Skills Section */}
-  <div className="frosty-window rounded-lg p-8">
+  <div className="frosty-window-2 rounded-lg p-8">
           <h3 className="text-amber-200 mb-6 flex items-center gap-2">
             <Code2 className="w-5 h-5" />
             Technical Skills

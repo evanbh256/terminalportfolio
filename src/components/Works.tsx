@@ -1,47 +1,39 @@
 import { ImageWithFallback } from "./figma/ImageWithFallback";
-import { ExternalLink, Github } from "lucide-react";
-import { Button } from "./ui/button";
 
 export function Works() {
   const projects = [
     {
       title: "NCAE Cyber Games 2026",
       highlights: [
-        "Placed 5th in Regionals",
-        "Engineered defensive strategies to secure simulated corporate network",
-        "Competed against professional Red Team attackers",
-        "Designed robust cyber defense strategies in competitive environment"
+        <>Placed <strong>5th in Regionals</strong></>,
+        <>Engineered <strong>defensive strategies</strong> to secure simulated corporate network</>,
+        <>Competed against professional <strong>Red Team</strong> attackers</>,
+        <>Designed robust <strong>cyber defense strategies</strong> in competitive environment</>
       ],
-      image: "https://images.unsplash.com/photo-1637904743105-3118bbe3ed8b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb2RpbmclMjB3b3Jrc3BhY2UlMjBsYXB0b3B8ZW58MXx8fHwxNzYxNTExMTQ0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      image: "/img/ncae.jpg",
       tags: ["Cybersecurity", "Defensive Strategies", "Network Security"],
-      github: "https://github.com",
-      demo: "https://example.com",
     },
     {
       title: "Cybersecurity Home Lab Environment",
       highlights: [
-        "Engineered multi-OS environment (Kali, Debian, FreeDOS) simulating legacy architectures",
-        "Evaluated cross-platform attack vectors",
-        "Conducted end-to-end security assessments using Nmap, Wireshark, and Metasploit",
-        "Identified, exploited, and remediated critical CVEs and cryptographic weaknesses"
+        <>Engineered multi-OS environment (<strong>Kali</strong>, <strong>Debian</strong>, <strong>FreeDOS</strong>) simulating legacy architectures</>,
+        <>Evaluated cross-platform <strong>attack vectors</strong></>,
+        <>Conducted end-to-end security assessments using <strong>Nmap</strong>, <strong>Wireshark</strong>, and <strong>Metasploit</strong></>,
+        <>Identified, exploited, and remediated critical <strong>CVEs</strong> and <strong>cryptographic weaknesses</strong></>
       ],
-      image: "https://images.unsplash.com/photo-1725800066480-7ccf189e9513?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkZXZlbG9wZXIlMjBwcm9ncmFtbWluZ3xlbnwxfHx8fDE3NjE1OTIwNTR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      image: "/img/kali.jpg",
       tags: ["Virtualization", "Nmap", "Wireshark", "Metasploit", "Security Analysis"],
-      github: "https://github.com",
-      demo: "https://example.com",
     },
     {
       title: "Personal Portfolio Website",
       highlights: [
-        "Developed high-performance static portfolio using AI-assisted workflow",
-        "Leveraged Figma and LLMs for design and implementation",
-        "Deployed via serverless GitHub Pages and Cloudflare pipeline",
-        "Implemented full version control and continuous deployment"
+        <>Developed high-performance static portfolio using AI-assisted workflow</>,
+        <>Leveraged <strong>Figma</strong> and LLMs for design and implementation</>,
+        <>Deployed via serverless <strong>GitHub Pages</strong> and <strong>Cloudflare</strong> pipeline</>,
+        <>Implemented full version control and continuous deployment</>
       ],
-      image: "https://images.unsplash.com/photo-1730794545099-14902983739d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3ZWIlMjBkZXNpZ24lMjBtb2NrdXB8ZW58MXx8fHwxNzYxNDk5MDcyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      image: "/img/web.png",
       tags: ["TypeScript", "React", "Tailwind CSS", "Figma", "Cloudflare"],
-      github: "https://github.com/evanbh256/terminalportfolio",
-      demo: "https://evanbhandari.com.np",
     },
   ];
 
@@ -53,7 +45,7 @@ export function Works() {
           {projects.map((project) => (
             <div
               key={project.title}
-              className="frosty-window rounded-lg overflow-hidden hover:bg-white/10 transition-all group"
+              className="frosty-window-2 rounded-lg overflow-hidden hover:bg-white/10 transition-all group"
             >
               <div className="relative h-48 overflow-hidden">
                 <ImageWithFallback
@@ -81,30 +73,6 @@ export function Works() {
                       {tag}
                     </span>
                   ))}
-                </div>
-                <div className="flex gap-2">
-                  <Button
-                    variant="ghost"
-                    size="sm"
-                    className="text-gray-300 hover:text-green-400"
-                    asChild
-                  >
-                    <a href={project.github} target="_blank" rel="noopener noreferrer">
-                      <Github className="w-4 h-4 mr-2" />
-                      Code
-                    </a>
-                  </Button>
-                  <Button
-                    variant="ghost"
-                    size="sm"
-                    className="text-gray-300 hover:text-green-400"
-                    asChild
-                  >
-                    <a href={project.demo} target="_blank" rel="noopener noreferrer">
-                      <ExternalLink className="w-4 h-4 mr-2" />
-                      Demo
-                    </a>
-                  </Button>
                 </div>
               </div>
             </div>
