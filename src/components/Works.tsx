@@ -32,7 +32,7 @@ export function Works() {
         <>Deployed via serverless <strong>GitHub Pages</strong> and <strong>Cloudflare</strong> pipeline</>,
         <>Implemented full version control and continuous deployment</>
       ],
-      image: "/img/web.png",
+      image: "img/web.png",
       tags: ["TypeScript", "React", "Tailwind CSS", "Figma", "Cloudflare"],
     },
   ];
