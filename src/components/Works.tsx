@@ -1,6 +1,11 @@
 import { Github } from "lucide-react";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 
+import handallImg from "../assets/projects/handall.png";
+import webImg from "../assets/projects/web.png";
+import ncaeImg from "../assets/projects/ncae.jpg";
+import kaliImg from "../assets/projects/kali.jpg";
+
 export function Works() {
   const projects = [
     {
@@ -12,7 +17,7 @@ export function Works() {
         <>Implemented professional <strong>Calendar UI</strong> with collision detection and smart drag-and-drop</>,
         <>Integrated native bidirectional sync with <strong>Google Calendar</strong> and robust iCal proxy feed</>
       ],
-      image: "/public/img/handall.png",
+      image: handallImg,
       tags: ["TypeScript", "React", "FastAPI", "LangGraph", "Supabase"],
     },
     {
@@ -24,7 +29,7 @@ export function Works() {
         <>Deployed via serverless <strong>GitHub Pages</strong> and <strong>Cloudflare</strong> pipeline</>,
         <>Implemented full version control and continuous deployment</>
       ],
-      image: "/public/img/web.png",
+      image: webImg,
       tags: ["TypeScript", "React", "Tailwind CSS", "Figma", "Cloudflare"],
     },
     {
@@ -35,7 +40,7 @@ export function Works() {
         <>Competed against professional <strong>Red Team</strong> attackers</>,
         <>Designed robust <strong>cyber defense strategies</strong> in competitive environment</>
       ],
-      image: "/public/img/ncae.jpg",
+      image: ncaeImg,
       tags: ["Cybersecurity", "Defensive Strategies", "Network Security"],
     },
     {
@@ -46,7 +51,7 @@ export function Works() {
         <>Conducted end-to-end security assessments using <strong>Nmap</strong>, <strong>Wireshark</strong>, and <strong>Metasploit</strong></>,
         <>Identified, exploited, and remediated critical <strong>CVEs</strong> and <strong>cryptographic weaknesses</strong></>
       ],
-      image: "/public/img/kali.jpg",
+      image: kaliImg,
       tags: ["Virtualization", "Nmap", "Wireshark", "Metasploit", "Security Analysis"],
     },
   ];
