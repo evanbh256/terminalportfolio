@@ -12,7 +12,7 @@ export function Works() {
         <>Implemented professional <strong>Calendar UI</strong> with collision detection and smart drag-and-drop</>,
         <>Integrated native bidirectional sync with <strong>Google Calendar</strong> and robust iCal proxy feed</>
       ],
-      image: "./img/handall.png",
+      image: "/public/img/handall.png",
       tags: ["TypeScript", "React", "FastAPI", "LangGraph", "Supabase"],
     },
     {
@@ -24,7 +24,7 @@ export function Works() {
         <>Deployed via serverless <strong>GitHub Pages</strong> and <strong>Cloudflare</strong> pipeline</>,
         <>Implemented full version control and continuous deployment</>
       ],
-      image: "./img/web.png",
+      image: "/public/img/web.png",
       tags: ["TypeScript", "React", "Tailwind CSS", "Figma", "Cloudflare"],
     },
     {
@@ -35,7 +35,7 @@ export function Works() {
         <>Competed against professional <strong>Red Team</strong> attackers</>,
         <>Designed robust <strong>cyber defense strategies</strong> in competitive environment</>
       ],
-      image: "./img/ncae.jpg",
+      image: "/public/img/ncae.jpg",
       tags: ["Cybersecurity", "Defensive Strategies", "Network Security"],
     },
     {
@@ -46,7 +46,7 @@ export function Works() {
         <>Conducted end-to-end security assessments using <strong>Nmap</strong>, <strong>Wireshark</strong>, and <strong>Metasploit</strong></>,
         <>Identified, exploited, and remediated critical <strong>CVEs</strong> and <strong>cryptographic weaknesses</strong></>
       ],
-      image: "./img/kali.jpg",
+      image: "/public/img/kali.jpg",
       tags: ["Virtualization", "Nmap", "Wireshark", "Metasploit", "Security Analysis"],
     },
   ];
