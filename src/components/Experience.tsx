@@ -66,7 +66,7 @@ export function Experience() {
 
   return (
     <div className="w-full">
-      <h2 className="text-green-400 mb-8 font-mono">{'>'} Experience</h2>
+
       
       <div className="space-y-6">
           {experiences.map((exp, index) => (

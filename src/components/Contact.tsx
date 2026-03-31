@@ -28,7 +28,7 @@ export function Contact() {
 
   return (
     <div className="w-full">
-      <h2 className="text-green-400 mb-8 font-mono">{'>'} Contact</h2>
+
       
       <div>
         <div className="frosty-window-2 rounded-lg p-8">

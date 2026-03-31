@@ -1,9 +1,6 @@
 import {
   GraduationCap,
   Code2,
-  Palette,
-  Terminal,
-  Monitor,
 } from "lucide-react";
 
 export function About() {
@@ -31,12 +28,23 @@ export function About() {
   const technicalSkills = {
     Languages: [
       "Python",
+      "TypeScript",
+      "JavaScript",
       "C",
       "C++",
       "NASM Assembly",
       "HTML",
       "CSS",
-      "JavaScript",
+    ],
+    "Frameworks & Databases": [
+      "React",
+      "Next.js",
+      "Node.js",
+      "Express",
+      "FastAPI",
+      "Prisma",
+      "SQLite",
+      "Supabase",
     ],
     "Operating Systems": [
       "Linux (Kali, Debian, Ubuntu)",
@@ -72,48 +80,46 @@ export function About() {
 
   return (
     <div className="w-full">
-      <h2 className="text-green-400 mb-8 font-mono">
-        {">"} About
-      </h2>
+
 
       <div className="space-y-6">
         {/* Bio Section */}
-  <div className="frosty-window-2 rounded-lg p-6">
+        <div className="frosty-window-2 rounded-lg p-6">
           <div className="flex flex-col md:flex-row gap-8 items-center">
-        <div>
-          <h3 className="text-amber-200 text-lg font-semibold mb-4">Who I Am</h3>
-          <ul className="space-y-2 mb-4">
-            <li className="text-white flex items-start gap-2">
-              <span className="text-green-400 mt-1">•</span>
-              <span>Self-motivated Cyber enthusiast passionate about growing and learning</span>
-            </li>
-            <li className="text-white flex items-start gap-2">
-              <span className="text-green-400 mt-1">•</span>
-              <span>Experienced in multiple roles with openness to new opportunities</span>
-            </li>
-          </ul>
-          <h4 className="text-green-400 font-semibold mb-2">Outside the Classroom:</h4>
-          <ul className="space-y-1">
-            <li className="text-white flex items-start gap-2">
-              <span className="text-green-400 mt-1">•</span>
-              <span>Organizing student events and community initiatives</span>
-            </li>
-            <li className="text-white flex items-start gap-2">
-              <span className="text-green-400 mt-1">•</span>
-              <span>Competing in Capture The Flag (CTF) challenges</span>
-            </li>
-            <li className="text-white flex items-start gap-2">
-              <span className="text-green-400 mt-1">•</span>
-              <span>Brewing and enjoying coffee</span>
-            </li>
-          </ul>
-        </div>
+            <div>
+              <h3 className="text-amber-200 text-lg font-bold mb-4">Who I Am</h3>
+              <ul className="space-y-2 mb-4">
+                <li className="text-white flex items-start gap-2">
+                  <span className="text-green-400 mt-1">•</span>
+                  <span>Self-motivated Cyber enthusiast passionate about growing and learning</span>
+                </li>
+                <li className="text-white flex items-start gap-2">
+                  <span className="text-green-400 mt-1">•</span>
+                  <span>Experienced in multiple roles with openness to new opportunities</span>
+                </li>
+              </ul>
+              <h4 className="text-green-400 font-semibold mb-2">Outside the Classroom:</h4>
+              <ul className="space-y-1">
+                <li className="text-white flex items-start gap-2">
+                  <span className="text-green-400 mt-1">•</span>
+                  <span>Organizing student events and community initiatives</span>
+                </li>
+                <li className="text-white flex items-start gap-2">
+                  <span className="text-green-400 mt-1">•</span>
+                  <span>Competing in Capture The Flag (CTF) challenges</span>
+                </li>
+                <li className="text-white flex items-start gap-2">
+                  <span className="text-green-400 mt-1">•</span>
+                  <span>Brewing and enjoying coffee</span>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
 
         {/* Education Section */}
-  <div className="frosty-window-2 rounded-lg p-6">
-          <h3 className="text-amber-200 mb-6 flex items-center gap-2">
+        <div className="frosty-window-2 rounded-lg p-6">
+          <h3 className="text-amber-200 text-lg font-bold mb-6 flex items-center gap-2">
             <GraduationCap className="w-5 h-5" />
             Education
           </h3>
@@ -162,8 +168,8 @@ export function About() {
         </div>
 
         {/* Technical Skills Section */}
-  <div className="frosty-window-2 rounded-lg p-8">
-          <h3 className="text-amber-200 mb-6 flex items-center gap-2">
+        <div className="frosty-window-2 rounded-lg p-8">
+          <h3 className="text-amber-200 text-lg font-bold mb-6 flex items-center gap-2">
             <Code2 className="w-5 h-5" />
             Technical Skills
           </h3>
