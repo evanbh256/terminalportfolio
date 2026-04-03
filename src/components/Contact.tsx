@@ -1,4 +1,4 @@
-import { Mail, Linkedin, Github } from "lucide-react";
+import { Mail, Linkedin, Github, FileText } from "lucide-react";
 
 export function Contact() {
 
@@ -23,6 +23,13 @@ export function Contact() {
       value: "https://github.com/evanbh256",
       href: "https://github.com/evanbh256",
       color: "text-purple-400",
+    },
+    {
+      icon: FileText,
+      label: "Portfolio",
+      value: "View Resume / Portfolio",
+      href: "/EvanBhandari-Web.pdf",
+      color: "text-red-400",
     },
   ];
 
