@@ -39,7 +39,7 @@ export function Hero({ onNavigate }: HeroProps) {
               <span className="text-blue-400">drwxr-xr-x</span>
               <button
                 onClick={() => handleInitialDirectoryClick("about")}
-                className="text-cyan-400 hover:text-cyan-300 hover:underline cursor-pointer transition-colors"
+                className="text-cyan-400 hover:text-cyan-300 underline hover:no-underline cursor-pointer transition-colors"
               >
                 about/
               </button>
@@ -48,7 +48,7 @@ export function Hero({ onNavigate }: HeroProps) {
               <span className="text-blue-400">drwxr-xr-x</span>
               <button
                 onClick={() => handleInitialDirectoryClick("works")}
-                className="text-cyan-400 hover:text-cyan-300 hover:underline cursor-pointer transition-colors"
+                className="text-cyan-400 hover:text-cyan-300 underline hover:no-underline cursor-pointer transition-colors"
               >
                 projects/
               </button>
@@ -57,7 +57,7 @@ export function Hero({ onNavigate }: HeroProps) {
               <span className="text-blue-400">drwxr-xr-x</span>
               <button
                 onClick={() => handleInitialDirectoryClick("experience")}
-                className="text-cyan-400 hover:text-cyan-300 hover:underline cursor-pointer transition-colors"
+                className="text-cyan-400 hover:text-cyan-300 underline hover:no-underline cursor-pointer transition-colors"
               >
                 experience/
               </button>
@@ -66,14 +66,14 @@ export function Hero({ onNavigate }: HeroProps) {
               <span className="text-blue-400">drwxr-xr-x</span>
               <button
                 onClick={() => handleInitialDirectoryClick("contact")}
-                className="text-cyan-400 hover:text-cyan-300 hover:underline cursor-pointer transition-colors"
+                className="text-cyan-400 hover:text-cyan-300 underline hover:no-underline cursor-pointer transition-colors"
               >
                 contact/
               </button>
             </div>
           </div>
           <div className="mt-3 text-pink-300 text-sm italic inline-block">
-            Enter "help" to see a list of commands
+            Click on the links to view pages. Enter "help" to see a list of commands.
           </div>
         </div>
       ),
