@@ -53,7 +53,7 @@ export function Taskbar({ openWindows, activeWindow, onWindowClick, onStartClick
         {/* Start Button */}
         <button
           onClick={onStartClick}
-          className="h-9 px-2 flex items-center justify-center rounded hover:bg-white/10 transition-colors"
+          className="h-9 px-2 flex items-center justify-center rounded hover:bg-white/10 transition-colors cursor-pointer"
           aria-label="Start Menu"
         >
           <img 

@@ -24,13 +24,13 @@ export function Hero({ onNavigate }: HeroProps) {
           <div className="mb-2">Hi, I'm Evan Bhandari!</div>
           <div>a self-motivated cyber enthusiast looking to grow, develop, and learn.</div>
           <div className="mt-4 flex gap-4">
-            <a href="https://github.com/evanbh256" target="_blank" rel="noopener noreferrer" className="text-green-400 hover:underline flex items-center gap-1">
+            <a href="https://github.com/evanbh256" target="_blank" rel="noopener noreferrer" className="text-green-400 hover:underline flex items-center gap-1 cursor-pointer">
               <Github className="w-3 h-3" /> github
             </a>
-            <a href="https://www.linkedin.com/in/evan-bhandari-aa7b19218/" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline flex items-center gap-1">
+            <a href="https://www.linkedin.com/in/evan-bhandari-aa7b19218/" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline flex items-center gap-1 cursor-pointer">
               <Linkedin className="w-3 h-3" /> linkedin
             </a>
-            <a href="https://www.instagram.com/evan_256/" target="_blank" rel="noopener noreferrer" className="text-pink-400 hover:underline flex items-center gap-1">
+            <a href="https://www.instagram.com/evan_256/" target="_blank" rel="noopener noreferrer" className="text-pink-400 hover:underline flex items-center gap-1 cursor-pointer">
               <Instagram className="w-3 h-3" /> instagram
             </a>
           </div>
@@ -50,7 +50,7 @@ export function Hero({ onNavigate }: HeroProps) {
               <span className="text-blue-400">drwxr-xr-x</span>
               <button
                 onClick={() => handleInitialDirectoryClick("about")}
-                className="text-cyan-400 hover:text-cyan-300 underline hover:no-underline cursor-pointer transition-colors"
+                className="text-cyan-400 hover:text-cyan-300 underline hover:no-underline cursor-pointer transition-colors pointer-events-auto"
               >
                 about/
               </button>
@@ -59,7 +59,7 @@ export function Hero({ onNavigate }: HeroProps) {
               <span className="text-blue-400">drwxr-xr-x</span>
               <button
                 onClick={() => handleInitialDirectoryClick("works")}
-                className="text-cyan-400 hover:text-cyan-300 underline hover:no-underline cursor-pointer transition-colors"
+                className="text-cyan-400 hover:text-cyan-300 underline hover:no-underline cursor-pointer transition-colors pointer-events-auto"
               >
                 projects/
               </button>
@@ -68,7 +68,7 @@ export function Hero({ onNavigate }: HeroProps) {
               <span className="text-blue-400">drwxr-xr-x</span>
               <button
                 onClick={() => handleInitialDirectoryClick("experience")}
-                className="text-cyan-400 hover:text-cyan-300 underline hover:no-underline cursor-pointer transition-colors"
+                className="text-cyan-400 hover:text-cyan-300 underline hover:no-underline cursor-pointer transition-colors pointer-events-auto"
               >
                 experience/
               </button>
@@ -77,7 +77,7 @@ export function Hero({ onNavigate }: HeroProps) {
               <span className="text-blue-400">drwxr-xr-x</span>
               <button
                 onClick={() => handleInitialDirectoryClick("contact")}
-                className="text-cyan-400 hover:text-cyan-300 underline hover:no-underline cursor-pointer transition-colors"
+                className="text-cyan-400 hover:text-cyan-300 underline hover:no-underline cursor-pointer transition-colors pointer-events-auto"
               >
                 contact/
               </button>
@@ -124,13 +124,13 @@ export function Hero({ onNavigate }: HeroProps) {
           <div className="mb-2">Hi, I'm Evan Bhandari!</div>
           <div>a self-motivated cyber enthusiast looking to grow, develop, and learn.</div>
           <div className="mt-4 flex gap-4">
-            <a href="https://github.com/evanbh256" target="_blank" rel="noopener noreferrer" className="text-green-400 hover:underline flex items-center gap-1">
+            <a href="https://github.com/evanbh256" target="_blank" rel="noopener noreferrer" className="text-green-400 hover:underline flex items-center gap-1 cursor-pointer">
               <Github className="w-3 h-3" /> github
             </a>
-            <a href="https://www.linkedin.com/in/evan-bhandari-aa7b19218/" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline flex items-center gap-1">
+            <a href="https://www.linkedin.com/in/evan-bhandari-aa7b19218/" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline flex items-center gap-1 cursor-pointer">
               <Linkedin className="w-3 h-3" /> linkedin
             </a>
-            <a href="https://www.instagram.com/evan_256/" target="_blank" rel="noopener noreferrer" className="text-pink-400 hover:underline flex items-center gap-1">
+            <a href="https://www.instagram.com/evan_256/" target="_blank" rel="noopener noreferrer" className="text-pink-400 hover:underline flex items-center gap-1 cursor-pointer">
               <Instagram className="w-3 h-3" /> instagram
             </a>
           </div>
@@ -155,7 +155,7 @@ export function Hero({ onNavigate }: HeroProps) {
               <span className="text-blue-400">drwxr-xr-x</span>
               <button
                 onClick={() => handleDirectoryClick("about")}
-                className="text-cyan-400 hover:text-cyan-300 hover:underline cursor-pointer transition-colors"  
+                className="text-cyan-400 hover:text-cyan-300 hover:underline cursor-pointer transition-colors pointer-events-auto"  
               >
                 about/
               </button>
@@ -164,7 +164,7 @@ export function Hero({ onNavigate }: HeroProps) {
               <span className="text-blue-400">drwxr-xr-x</span>
               <button
                 onClick={() => handleDirectoryClick("works")}
-                className="text-cyan-400 hover:text-cyan-300 hover:underline cursor-pointer transition-colors"  
+                className="text-cyan-400 hover:text-cyan-300 hover:underline cursor-pointer transition-colors pointer-events-auto"  
               >
                 projects/
               </button>
@@ -173,7 +173,7 @@ export function Hero({ onNavigate }: HeroProps) {
               <span className="text-blue-400">drwxr-xr-x</span>
               <button
                 onClick={() => handleDirectoryClick("experience")}
-                className="text-cyan-400 hover:text-cyan-300 hover:underline cursor-pointer transition-colors"  
+                className="text-cyan-400 hover:text-cyan-300 hover:underline cursor-pointer transition-colors pointer-events-auto"  
               >
                 experience/
               </button>
@@ -182,7 +182,7 @@ export function Hero({ onNavigate }: HeroProps) {
               <span className="text-blue-400">drwxr-xr-x</span>
               <button
                 onClick={() => handleDirectoryClick("contact")}
-                className="text-cyan-400 hover:text-cyan-300 hover:underline cursor-pointer transition-colors"  
+                className="text-cyan-400 hover:text-cyan-300 hover:underline cursor-pointer transition-colors pointer-events-auto"  
               >
                 contact/
               </button>

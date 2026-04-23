@@ -30,7 +30,7 @@ export function Contact() {
         {contactLinks.map((link) => (
           <div key={link.label}>
             <span className="text-white font-bold">{link.label}: </span>
-            <a href={link.href} target="_blank" rel="noopener noreferrer" className="text-cyan-400 hover:underline">
+            <a href={link.href} target="_blank" rel="noopener noreferrer" className="text-cyan-400 hover:underline cursor-pointer">
               {link.value}
             </a>
           </div>

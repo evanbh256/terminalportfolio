@@ -54,7 +54,7 @@ export function Works() {
             <h4 className="text-white font-bold text-base mb-1">
               {project.title}
               {'link' in project && (
-                <a href={project.link} target="_blank" rel="noopener noreferrer" className="ml-2 text-cyan-400 font-normal hover:underline">
+                <a href={project.link} target="_blank" rel="noopener noreferrer" className="ml-2 text-cyan-400 font-normal hover:underline cursor-pointer">
                   [View Source]
                 </a>
               )}
