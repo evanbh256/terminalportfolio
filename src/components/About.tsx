@@ -5,7 +5,7 @@ export function About() {
       location: "Madison, SD",
       degree:
         "B.S. Cyber Operations, Minor in Network Security Administration (Honors)",
-      period: "Aug 2024 ΓÇô Dec 2027",
+      period: "Aug 2024 - Dec 2027",
       details: [
         "GPA: 3.73",
         "Recipient of DSU Rising Scholarship and DSU Champion Scholarship",
@@ -15,7 +15,7 @@ export function About() {
       school: "Rato Bangala School",
       location: "Lalitpur, Nepal",
       degree: "Cambridge International A-Levels",
-      period: "Jun 2021 ΓÇô Jun 2022",
+      period: "Jun 2021 - Jun 2022",
       details: [],
     },
   ];
@@ -43,7 +43,7 @@ export function About() {
 
   return (
     <div className="w-full text-gray-200 font-mono text-sm leading-relaxed whitespace-pre-wrap">
-      
+
       {/* Bio Section */}
       <div className="mb-8">
         <h3 className="text-amber-200 text-lg font-bold mb-2">Who I Am</h3>
@@ -52,7 +52,7 @@ export function About() {
           <br/>
           - Experienced in multiple roles with openness to new opportunities
         </p>
-        
+
         <h4 className="text-green-400 font-semibold mt-4 mb-1">Outside the Classroom:</h4>
         <p>
           - Organizing student events and community initiatives
@@ -68,7 +68,7 @@ export function About() {
         <h3 className="text-amber-200 text-lg font-bold mb-4">Education</h3>
         {education.map((edu, index) => (
           <div key={index} className="mb-4">
-            <h4 className="text-white font-semibold text-base">{edu.school} ΓÇö <span className="text-gray-400 font-normal">{edu.location}</span></h4>
+            <h4 className="text-white font-semibold text-base">{edu.school} - <span className="text-gray-400 font-normal">{edu.location}</span></h4>
             <div className="text-cyan-400 text-sm mb-1">{edu.period}</div>
             <div className="text-white font-medium mb-1">{edu.degree}</div>
             {edu.details.length > 0 && (
