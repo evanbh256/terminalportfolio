@@ -155,7 +155,7 @@ export function Hero({ onNavigate }: HeroProps) {
               <span className="text-blue-400">drwxr-xr-x</span>
               <button
                 onClick={() => handleDirectoryClick("about")}
-                className="text-cyan-400 hover:text-cyan-300 hover:underline cursor-pointer transition-colors pointer-events-auto"  
+                className="text-cyan-400 hover:text-cyan-300 hover:underline cursor-pointer transition-colors pointer-events-auto"
               >
                 about/
               </button>
@@ -164,7 +164,7 @@ export function Hero({ onNavigate }: HeroProps) {
               <span className="text-blue-400">drwxr-xr-x</span>
               <button
                 onClick={() => handleDirectoryClick("works")}
-                className="text-cyan-400 hover:text-cyan-300 hover:underline cursor-pointer transition-colors pointer-events-auto"  
+                className="text-cyan-400 hover:text-cyan-300 hover:underline cursor-pointer transition-colors pointer-events-auto"
               >
                 projects/
               </button>
@@ -173,7 +173,7 @@ export function Hero({ onNavigate }: HeroProps) {
               <span className="text-blue-400">drwxr-xr-x</span>
               <button
                 onClick={() => handleDirectoryClick("experience")}
-                className="text-cyan-400 hover:text-cyan-300 hover:underline cursor-pointer transition-colors pointer-events-auto"  
+                className="text-cyan-400 hover:text-cyan-300 hover:underline cursor-pointer transition-colors pointer-events-auto"
               >
                 experience/
               </button>
@@ -182,7 +182,7 @@ export function Hero({ onNavigate }: HeroProps) {
               <span className="text-blue-400">drwxr-xr-x</span>
               <button
                 onClick={() => handleDirectoryClick("contact")}
-                className="text-cyan-400 hover:text-cyan-300 hover:underline cursor-pointer transition-colors pointer-events-auto"  
+                className="text-cyan-400 hover:text-cyan-300 hover:underline cursor-pointer transition-colors pointer-events-auto"
               >
                 contact/
               </button>
@@ -277,45 +277,11 @@ export function Hero({ onNavigate }: HeroProps) {
 
   return (
     <div className="flex flex-col h-full bg-transparent">
-      {/* Social Links */}
-      <div className="flex items-center gap-4 mb-4 pb-2 border-b border-white/10">
-        <a
-          href="https://www.instagram.com/evan_256/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-gray-400 hover:text-pink-400 transition-colors flex items-center gap-1.5"
-          aria-label="Instagram"
-        >
-          <Instagram className="w-4 h-4" />
-          <span className="text-xs">Instagram</span>
-        </a>
-        <a
-          href="https://www.linkedin.com/in/evan-bhandari-aa7b19218/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-gray-400 hover:text-blue-400 transition-colors flex items-center gap-1.5"
-          aria-label="LinkedIn"
-        >
-          <Linkedin className="w-4 h-4" />
-          <span className="text-xs">LinkedIn</span>
-        </a>
-        <a
-          href="https://github.com/evanbh256"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-gray-400 hover:text-green-400 transition-colors flex items-center gap-1.5"
-          aria-label="GitHub"
-        >
-          <Github className="w-4 h-4" />
-          <span className="text-xs">GitHub</span>
-        </a>
-      </div>
-
       {/* Terminal Body */}
       <div
         ref={terminalRef}
         onClick={handleTerminalClick}
-        className="flex-1 font-mono text-xs overflow-y-auto cursor-text pr-2"
+        className="flex-1 font-mono text-xs overflow-y-auto cursor-text pr-2 pt-2"
       >
         {/* Command History */}
         {history.map((entry, index) => (
