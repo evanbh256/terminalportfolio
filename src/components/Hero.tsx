@@ -12,7 +12,7 @@ interface HistoryEntry {
 
 export function Hero({ onNavigate }: HeroProps) {
   const [input, setInput] = useState("");
-  
+
   const handleInitialDirectoryClick = (dir: string) => {
     onNavigate(dir);
   };
@@ -23,6 +23,17 @@ export function Hero({ onNavigate }: HeroProps) {
         <div className="text-gray-300 mt-1 ml-2">
           <div className="mb-2">Hi, I'm Evan Bhandari!</div>
           <div>a self-motivated cyber enthusiast looking to grow, develop, and learn.</div>
+          <div className="mt-4 flex gap-4">
+            <a href="https://github.com/evanbh256" target="_blank" rel="noopener noreferrer" className="text-green-400 hover:underline flex items-center gap-1">
+              <Github className="w-3 h-3" /> github
+            </a>
+            <a href="https://www.linkedin.com/in/evan-bhandari-aa7b19218/" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline flex items-center gap-1">
+              <Linkedin className="w-3 h-3" /> linkedin
+            </a>
+            <a href="https://www.instagram.com/evan_256/" target="_blank" rel="noopener noreferrer" className="text-pink-400 hover:underline flex items-center gap-1">
+              <Instagram className="w-3 h-3" /> instagram
+            </a>
+          </div>
         </div>
       ),
     },
@@ -112,6 +123,17 @@ export function Hero({ onNavigate }: HeroProps) {
         <div className="text-gray-300 mt-1 ml-2">
           <div className="mb-2">Hi, I'm Evan Bhandari!</div>
           <div>a self-motivated cyber enthusiast looking to grow, develop, and learn.</div>
+          <div className="mt-4 flex gap-4">
+            <a href="https://github.com/evanbh256" target="_blank" rel="noopener noreferrer" className="text-green-400 hover:underline flex items-center gap-1">
+              <Github className="w-3 h-3" /> github
+            </a>
+            <a href="https://www.linkedin.com/in/evan-bhandari-aa7b19218/" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline flex items-center gap-1">
+              <Linkedin className="w-3 h-3" /> linkedin
+            </a>
+            <a href="https://www.instagram.com/evan_256/" target="_blank" rel="noopener noreferrer" className="text-pink-400 hover:underline flex items-center gap-1">
+              <Instagram className="w-3 h-3" /> instagram
+            </a>
+          </div>
         </div>
       );
     } else if (trimmedCmd === "ls" || trimmedCmd === "ls -la" || trimmedCmd === "ls -l") {
@@ -133,7 +155,7 @@ export function Hero({ onNavigate }: HeroProps) {
               <span className="text-blue-400">drwxr-xr-x</span>
               <button
                 onClick={() => handleDirectoryClick("about")}
-                className="text-cyan-400 hover:text-cyan-300 hover:underline cursor-pointer transition-colors"
+                className="text-cyan-400 hover:text-cyan-300 hover:underline cursor-pointer transition-colors"  
               >
                 about/
               </button>
@@ -142,7 +164,7 @@ export function Hero({ onNavigate }: HeroProps) {
               <span className="text-blue-400">drwxr-xr-x</span>
               <button
                 onClick={() => handleDirectoryClick("works")}
-                className="text-cyan-400 hover:text-cyan-300 hover:underline cursor-pointer transition-colors"
+                className="text-cyan-400 hover:text-cyan-300 hover:underline cursor-pointer transition-colors"  
               >
                 projects/
               </button>
@@ -151,7 +173,7 @@ export function Hero({ onNavigate }: HeroProps) {
               <span className="text-blue-400">drwxr-xr-x</span>
               <button
                 onClick={() => handleDirectoryClick("experience")}
-                className="text-cyan-400 hover:text-cyan-300 hover:underline cursor-pointer transition-colors"
+                className="text-cyan-400 hover:text-cyan-300 hover:underline cursor-pointer transition-colors"  
               >
                 experience/
               </button>
@@ -160,7 +182,7 @@ export function Hero({ onNavigate }: HeroProps) {
               <span className="text-blue-400">drwxr-xr-x</span>
               <button
                 onClick={() => handleDirectoryClick("contact")}
-                className="text-cyan-400 hover:text-cyan-300 hover:underline cursor-pointer transition-colors"
+                className="text-cyan-400 hover:text-cyan-300 hover:underline cursor-pointer transition-colors"  
               >
                 contact/
               </button>
@@ -178,7 +200,7 @@ export function Hero({ onNavigate }: HeroProps) {
           <div>Host: <span className="text-yellow-400">127.0.0.1</span></div>
           <div>Uptime: {Math.floor((currentDate.getTime() - new Date(currentDate.getFullYear(), 0, 0).getTime()) / (1000 * 60 * 60 * 24))} days</div>
           <div>Shell: bash 5.2.26</div>
-          <div className="text-purple-400 mt-2 font-bold">Γÿò Powered by Coffee</div>
+          <div className="text-purple-400 mt-2 font-bold">☕ Powered by Coffee</div>
                         <div className="text-yellow-400">
               Idea by{" "}
               <a
@@ -195,7 +217,7 @@ export function Hero({ onNavigate }: HeroProps) {
     } else if (trimmedCmd.startsWith("cd ")) {
       const section = trimmedCmd.substring(3).trim().replace("/", "");
       const validSections = ["about", "works", "experience", "contact", "home"];
-      
+
       if (validSections.includes(section)) {
         onNavigate(section);
         if (section === "home") {
@@ -290,7 +312,7 @@ export function Hero({ onNavigate }: HeroProps) {
       </div>
 
       {/* Terminal Body */}
-      <div 
+      <div
         ref={terminalRef}
         onClick={handleTerminalClick}
         className="flex-1 font-mono text-xs overflow-y-auto cursor-text pr-2"
