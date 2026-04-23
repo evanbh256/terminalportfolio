@@ -8,11 +8,11 @@ interface TaskbarProps {
 }
 
 const windowIcons: Record<string, string> = {
-  terminal: "img/icons/icons8-terminal-96.png",
-  about: "img/icons/icons8-find-user-male-96.png",
-  works: "img/icons/icons8-folder-96.png",
-  experience: "img/icons/icons8-project-96.png",
-  contact: "img/icons/icons8-contact-96.png",
+  terminal: "/img/icons/icons8-terminal-96.png",
+  about: "/img/icons/icons8-find-user-male-96.png",
+  works: "/img/icons/icons8-folder-96.png",
+  experience: "/img/icons/icons8-project-96.png",
+  contact: "/img/icons/icons8-contact-96.png",
 };
 
 const windowLabels: Record<string, string> = {
@@ -49,7 +49,7 @@ export function Taskbar({ openWindows, activeWindow, onWindowClick, onStartClick
           aria-label="Start Menu"
         >
           <img 
-            src="img/logo.png" 
+            src="/img/logo.png" 
             alt="Logo" 
             className="w-6 h-6 object-contain drop-shadow-md" 
           />
@@ -60,7 +60,7 @@ export function Taskbar({ openWindows, activeWindow, onWindowClick, onStartClick
         {/* Open Windows */}
         {openWindows.map((win) => {
           const isActive = activeWindow === win;
-          const iconSrc = windowIcons[win] || "img/icons/icons8-folder-96.png";
+          const iconSrc = windowIcons[win] || "/img/icons/icons8-folder-96.png";
           return (
             <button
               key={win}

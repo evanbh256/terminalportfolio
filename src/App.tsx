@@ -92,11 +92,11 @@ export default function App() {
       <main className="flex-1 relative z-10 p-4 pt-8" onClick={() => setActiveWindow(null)}>
         {/* Desktop Icons Grid */}
         <div className="flex flex-col flex-wrap gap-4 max-h-[calc(100vh-100px)] w-fit" onClick={(e) => e.stopPropagation()}>
-          <DesktopIcon iconSrc="img/icons/icons8-terminal-96.png" label="Terminal" onClick={() => handleOpenWindow("terminal")} />
-          <DesktopIcon iconSrc="img/icons/icons8-find-user-male-96.png" label="About Me" onClick={() => handleOpenWindow("about")} />
-          <DesktopIcon iconSrc="img/icons/icons8-folder-96.png" label="Projects" onClick={() => handleOpenWindow("works")} />
-          <DesktopIcon iconSrc="img/icons/icons8-project-96.png" label="Experience" onClick={() => handleOpenWindow("experience")} />
-          <DesktopIcon iconSrc="img/icons/icons8-contact-96.png" label="Contact" onClick={() => handleOpenWindow("contact")} />
+          <DesktopIcon iconSrc="/img/icons/icons8-terminal-96.png" label="Terminal" onClick={() => handleOpenWindow("terminal")} />
+          <DesktopIcon iconSrc="/img/icons/icons8-find-user-male-96.png" label="About Me" onClick={() => handleOpenWindow("about")} />
+          <DesktopIcon iconSrc="/img/icons/icons8-folder-96.png" label="Projects" onClick={() => handleOpenWindow("works")} />
+          <DesktopIcon iconSrc="/img/icons/icons8-project-96.png" label="Experience" onClick={() => handleOpenWindow("experience")} />
+          <DesktopIcon iconSrc="/img/icons/icons8-contact-96.png" label="Contact" onClick={() => handleOpenWindow("contact")} />
         </div>
       </main>
 
