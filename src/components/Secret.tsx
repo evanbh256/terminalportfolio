@@ -1,8 +1,0 @@
-export function Secret() {
-  return (
-    <div className="w-full text-gray-500 font-mono text-xs flex items-center justify-center min-h-full text-center p-4">
-      ┬⌐ {new Date().getFullYear()} Evan Bhandari. All rights reserved.
-    </div>
-  );
-}
-
