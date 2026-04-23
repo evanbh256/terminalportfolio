@@ -111,14 +111,13 @@ export function Window({
       </div>
 
       {/* Window Content */}
-      <div 
+      <div
         className={`absolute top-[42px] left-0 right-0 bottom-0 overflow-y-auto p-6 custom-scrollbar bg-[#1e1e1e] focus:outline-none ${!isActive && 'opacity-90 grayscale-[20%]'}`}
-        contentEditable="true"
+        contentEditable={id !== "terminal" ? "true" : "false"}
         suppressContentEditableWarning={true}
         spellCheck="false"
       >
         {children}
-      </div>
-    </Rnd>
+      </div>    </Rnd>
   );
 }
