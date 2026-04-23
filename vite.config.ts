@@ -1,11 +1,21 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import path from "node:path";
+import { fileURLToPath } from "node:url";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 export default defineConfig({
+  root: "src",
+  publicDir: "../public",
+  build: {
+    outDir: "../",
+    emptyOutDir: false,
+  },
   plugins: [react()],
-  base: "/",  // <- repo name
+  base: "./",
   resolve: {
-    alias: { "@": path.resolve(__dirname, "src") }, // optional, helps with "@/..."
+    alias: { "@": path.resolve(__dirname, "src") },
   },
 });
