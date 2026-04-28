@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Hero } from "./components/Hero";
 import { About } from "./components/About";
 import { Works } from "./components/Works";
+import { Competitions } from "./components/Competitions";
 import { Experience } from "./components/Experience";
 import { Contact } from "./components/Contact";
 import { Window } from "./components/Window";
@@ -12,6 +13,7 @@ import { Taskbar } from "./components/Taskbar";
 import terminalIcon from "./assets/icons8-terminal-96.png";
 import aboutIcon from "./assets/icons8-find-user-male-96.png";
 import worksIcon from "./assets/icons8-folder-96.png";
+import competitionsIcon from "./assets/icons8-project-96.png";
 import experienceIcon from "./assets/icons8-project-96.png";
 import contactIcon from "./assets/icons8-contact-96.png";
 
@@ -22,28 +24,30 @@ export default function App() {
 
   const handleOpenWindow = (section: string) => {
     if (section === "home") return;
-    if (!openWindows.includes(section)) {
-      setOpenWindows([...openWindows, section]);
-    }
-    if (minimizedWindows.includes(section)) {
-      setMinimizedWindows(minimizedWindows.filter((w) => w !== section));
-    }
+    setOpenWindows(prev => {
+      const without = prev.filter(w => w !== section);
+      return [...without, section];
+    });
+    setMinimizedWindows(prev => prev.filter((w) => w !== section));
     setActiveWindow(section);
   };
 
   const handleCloseWindow = (section: string) => {
-    setOpenWindows(openWindows.filter((w) => w !== section));
-    setMinimizedWindows(minimizedWindows.filter((w) => w !== section));
-    if (activeWindow === section) {
-      const remaining = openWindows.filter((w) => w !== section);
-      setActiveWindow(remaining.length > 0 ? remaining[remaining.length - 1] : null);
-    }
+    setOpenWindows(prev => {
+      const next = prev.filter((w) => w !== section);
+      if (activeWindow === section) {
+        setActiveWindow(next.length > 0 ? next[next.length - 1] : null);
+      }
+      return next;
+    });
+    setMinimizedWindows(prev => prev.filter((w) => w !== section));
   };
 
   const handleMinimizeWindow = (section: string) => {
-    if (!minimizedWindows.includes(section)) {
-      setMinimizedWindows([...minimizedWindows, section]);
-    }
+    setMinimizedWindows(prev => {
+      if (!prev.includes(section)) return [...prev, section];
+      return prev;
+    });
     if (activeWindow === section) {
       const available = openWindows.filter(w => w !== section && !minimizedWindows.includes(w));
       setActiveWindow(available.length > 0 ? available[available.length - 1] : null);
@@ -51,9 +55,12 @@ export default function App() {
   };
 
   const handleWindowClick = (section: string) => {
-    if (minimizedWindows.includes(section)) {
-      setMinimizedWindows(minimizedWindows.filter(w => w !== section));
-    }
+    setMinimizedWindows(prev => prev.filter(w => w !== section));
+    setOpenWindows(prev => {
+      if (prev[prev.length - 1] === section) return prev;
+      const without = prev.filter(w => w !== section);
+      return [...without, section];
+    });
     setActiveWindow(section);
   };
 
@@ -70,6 +77,7 @@ export default function App() {
       terminal: "evan@portfolio:~$",
       about: "evan@portfolio:~/about$",
       works: "evan@portfolio:~/projects$",
+      competitions: "evan@portfolio:~/competitions$",
       experience: "evan@portfolio:~/experience$",
       contact: "evan@portfolio:~/contact$",
     };
@@ -83,6 +91,7 @@ export default function App() {
           <DesktopIcon iconSrc={terminalIcon} label="Terminal" onClick={() => handleOpenWindow("terminal")} />
           <DesktopIcon iconSrc={aboutIcon} label="About Me" onClick={() => handleOpenWindow("about")} />
           <DesktopIcon iconSrc={worksIcon} label="Projects" onClick={() => handleOpenWindow("works")} />
+          <DesktopIcon iconSrc={competitionsIcon} label="Competitions" onClick={() => handleOpenWindow("competitions")} />
           <DesktopIcon iconSrc={experienceIcon} label="Experience" onClick={() => handleOpenWindow("experience")} />
           <DesktopIcon iconSrc={contactIcon} label="Contact" onClick={() => handleOpenWindow("contact")} />
         </div>
@@ -97,6 +106,7 @@ export default function App() {
           onClick={() => handleWindowClick("terminal")}
           isActive={activeWindow === "terminal"}
           isMinimized={minimizedWindows.includes("terminal")}
+          zIndex={30 + openWindows.indexOf("terminal")}
           defaultWidth="w-[95%] max-w-4xl"
           defaultHeight="h-[60vh]"
         >
@@ -112,6 +122,7 @@ export default function App() {
           onClick={() => handleWindowClick("about")}
           isActive={activeWindow === "about"}
           isMinimized={minimizedWindows.includes("about")}
+          zIndex={30 + openWindows.indexOf("about")}
         >
           <About />
         </Window>
@@ -125,8 +136,23 @@ export default function App() {
           onClick={() => handleWindowClick("works")}
           isActive={activeWindow === "works"}
           isMinimized={minimizedWindows.includes("works")}
+          zIndex={30 + openWindows.indexOf("works")}
         >
           <Works />
+        </Window>
+      )}
+      {openWindows.includes("competitions") && (
+        <Window
+          id="competitions"
+          title={getWindowTitle("competitions")}
+          onClose={() => handleCloseWindow("competitions")}
+          onMinimize={() => handleMinimizeWindow("competitions")}
+          onClick={() => handleWindowClick("competitions")}
+          isActive={activeWindow === "competitions"}
+          isMinimized={minimizedWindows.includes("competitions")}
+          zIndex={30 + openWindows.indexOf("competitions")}
+        >
+          <Competitions />
         </Window>
       )}
       {openWindows.includes("experience") && (
@@ -138,6 +164,7 @@ export default function App() {
           onClick={() => handleWindowClick("experience")}
           isActive={activeWindow === "experience"}
           isMinimized={minimizedWindows.includes("experience")}
+          zIndex={30 + openWindows.indexOf("experience")}
         >
           <Experience />
         </Window>
@@ -151,6 +178,7 @@ export default function App() {
           onClick={() => handleWindowClick("contact")}
           isActive={activeWindow === "contact"}
           isMinimized={minimizedWindows.includes("contact")}
+          zIndex={30 + openWindows.indexOf("contact")}
         >
           <Contact />
         </Window>

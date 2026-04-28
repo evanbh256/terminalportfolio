@@ -28,7 +28,7 @@ export function Contact() {
       
       <div className="space-y-2">
         {contactLinks.map((link) => (
-          <div key={link.label}>
+          <div key={link.label} contentEditable={false}>
             <span className="text-white font-bold">{link.label}: </span>
             <a href={link.href} target="_blank" rel="noopener noreferrer" className="text-cyan-400 hover:underline cursor-pointer">
               {link.value}

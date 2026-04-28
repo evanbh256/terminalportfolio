@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import terminalIcon from "../assets/icons8-terminal-96.png";
 import aboutIcon from "../assets/icons8-find-user-male-96.png";
 import worksIcon from "../assets/icons8-folder-96.png";
+import competitionsIcon from "../assets/icons8-project-96.png";
 import experienceIcon from "../assets/icons8-project-96.png";
 import contactIcon from "../assets/icons8-contact-96.png";
 import logoIcon from "../assets/logo.png";
@@ -19,6 +20,7 @@ const windowIcons: Record<string, string> = {
   terminal: terminalIcon,
   about: aboutIcon,
   works: worksIcon,
+  competitions: competitionsIcon,
   experience: experienceIcon,
   contact: contactIcon,
 };
@@ -27,6 +29,7 @@ const windowLabels: Record<string, string> = {
   terminal: "Terminal",
   about: "About",
   works: "Projects",
+  competitions: "Competitions",
   experience: "Experience",
   contact: "Contact",
 };

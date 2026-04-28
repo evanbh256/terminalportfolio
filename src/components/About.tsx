@@ -34,7 +34,7 @@ export function About() {
       "Metasploit", "John the Ripper", "Hashcat", "Wireshark", "Nmap"
     ],
     "Dev Tools": [
-      "Git", "GitHub", "NPM", "Cloudflare", "VS Code", "PowerShell", "VirtualBox"
+      "Git", "GitHub", "Supabase", "Cloudflare", "VS Code", "PowerShell", "VirtualBox"
     ],
     "Creative Suite": [
       "Photoshop", "Premiere Pro", "After Effects", "Figma", "Affinity"

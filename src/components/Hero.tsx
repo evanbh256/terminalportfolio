@@ -13,7 +13,8 @@ interface HistoryEntry {
 export function Hero({ onNavigate }: HeroProps) {
   const [input, setInput] = useState("");
 
-  const handleInitialDirectoryClick = (dir: string) => {
+  const handleInitialDirectoryClick = (e: React.MouseEvent, dir: string) => {
+    e.stopPropagation();
     onNavigate(dir);
   };
   const [history, setHistory] = useState<HistoryEntry[]>([
@@ -49,7 +50,7 @@ export function Hero({ onNavigate }: HeroProps) {
             <div className="flex items-center gap-3">
               <span className="text-blue-400">drwxr-xr-x</span>
               <button
-                onClick={() => handleInitialDirectoryClick("about")}
+                onClick={(e) => handleInitialDirectoryClick(e, "about")}
                 className="text-cyan-400 hover:text-cyan-300 underline hover:no-underline cursor-pointer transition-colors pointer-events-auto"
               >
                 about/
@@ -58,7 +59,7 @@ export function Hero({ onNavigate }: HeroProps) {
             <div className="flex items-center gap-3">
               <span className="text-blue-400">drwxr-xr-x</span>
               <button
-                onClick={() => handleInitialDirectoryClick("works")}
+                onClick={(e) => handleInitialDirectoryClick(e, "works")}
                 className="text-cyan-400 hover:text-cyan-300 underline hover:no-underline cursor-pointer transition-colors pointer-events-auto"
               >
                 projects/
@@ -67,7 +68,16 @@ export function Hero({ onNavigate }: HeroProps) {
             <div className="flex items-center gap-3">
               <span className="text-blue-400">drwxr-xr-x</span>
               <button
-                onClick={() => handleInitialDirectoryClick("experience")}
+                onClick={(e) => handleInitialDirectoryClick(e, "competitions")}
+                className="text-cyan-400 hover:text-cyan-300 underline hover:no-underline cursor-pointer transition-colors pointer-events-auto"
+              >
+                competitions/
+              </button>
+            </div>
+            <div className="flex items-center gap-3">
+              <span className="text-blue-400">drwxr-xr-x</span>
+              <button
+                onClick={(e) => handleInitialDirectoryClick(e, "experience")}
                 className="text-cyan-400 hover:text-cyan-300 underline hover:no-underline cursor-pointer transition-colors pointer-events-auto"
               >
                 experience/
@@ -76,7 +86,7 @@ export function Hero({ onNavigate }: HeroProps) {
             <div className="flex items-center gap-3">
               <span className="text-blue-400">drwxr-xr-x</span>
               <button
-                onClick={() => handleInitialDirectoryClick("contact")}
+                onClick={(e) => handleInitialDirectoryClick(e, "contact")}
                 className="text-cyan-400 hover:text-cyan-300 underline hover:no-underline cursor-pointer transition-colors pointer-events-auto"
               >
                 contact/
@@ -111,7 +121,7 @@ export function Hero({ onNavigate }: HeroProps) {
           <div className="ml-2 mt-1 space-y-1">
             <div><span className="text-green-400">whoami</span> - Display information about me</div>
             <div><span className="text-green-400">ls</span> - List available sections</div>
-            <div><span className="text-green-400">cd [section]</span> - Navigate to a section (about/projects/experience/contact)</div>
+            <div><span className="text-green-400">cd [section]</span> - Navigate to a section (about/projects/competitions/experience/contact)</div>
             <div><span className="text-green-400">uname -a</span> - Print system information</div>
             <div><span className="text-green-400">clear</span> - Clear the terminal</div>
             <div><span className="text-green-400">help</span> - Show this help message</div>
@@ -137,7 +147,8 @@ export function Hero({ onNavigate }: HeroProps) {
         </div>
       );
     } else if (trimmedCmd === "ls" || trimmedCmd === "ls -la" || trimmedCmd === "ls -l") {
-      const handleDirectoryClick = (dir: string) => {
+      const handleDirectoryClick = (e: React.MouseEvent, dir: string) => {
+        e.stopPropagation();
         setTimeout(() => {
           handleCommand(`cd ${dir}`);
           setInput("");
@@ -154,7 +165,7 @@ export function Hero({ onNavigate }: HeroProps) {
             <div className="flex items-center gap-3">
               <span className="text-blue-400">drwxr-xr-x</span>
               <button
-                onClick={() => handleDirectoryClick("about")}
+                onClick={(e) => handleDirectoryClick(e, "about")}
                 className="text-cyan-400 hover:text-cyan-300 hover:underline cursor-pointer transition-colors pointer-events-auto"
               >
                 about/
@@ -163,7 +174,7 @@ export function Hero({ onNavigate }: HeroProps) {
             <div className="flex items-center gap-3">
               <span className="text-blue-400">drwxr-xr-x</span>
               <button
-                onClick={() => handleDirectoryClick("works")}
+                onClick={(e) => handleDirectoryClick(e, "works")}
                 className="text-cyan-400 hover:text-cyan-300 hover:underline cursor-pointer transition-colors pointer-events-auto"
               >
                 projects/
@@ -172,7 +183,16 @@ export function Hero({ onNavigate }: HeroProps) {
             <div className="flex items-center gap-3">
               <span className="text-blue-400">drwxr-xr-x</span>
               <button
-                onClick={() => handleDirectoryClick("experience")}
+                onClick={(e) => handleDirectoryClick(e, "competitions")}
+                className="text-cyan-400 hover:text-cyan-300 hover:underline cursor-pointer transition-colors pointer-events-auto"
+              >
+                competitions/
+              </button>
+            </div>
+            <div className="flex items-center gap-3">
+              <span className="text-blue-400">drwxr-xr-x</span>
+              <button
+                onClick={(e) => handleDirectoryClick(e, "experience")}
                 className="text-cyan-400 hover:text-cyan-300 hover:underline cursor-pointer transition-colors pointer-events-auto"
               >
                 experience/
@@ -181,7 +201,7 @@ export function Hero({ onNavigate }: HeroProps) {
             <div className="flex items-center gap-3">
               <span className="text-blue-400">drwxr-xr-x</span>
               <button
-                onClick={() => handleDirectoryClick("contact")}
+                onClick={(e) => handleDirectoryClick(e, "contact")}
                 className="text-cyan-400 hover:text-cyan-300 hover:underline cursor-pointer transition-colors pointer-events-auto"
               >
                 contact/
@@ -216,7 +236,7 @@ export function Hero({ onNavigate }: HeroProps) {
       );
     } else if (trimmedCmd.startsWith("cd ")) {
       const section = trimmedCmd.substring(3).trim().replace("/", "");
-      const validSections = ["about", "works", "experience", "contact", "home"];
+      const validSections = ["about", "works", "competitions", "experience", "contact", "home"];
 
       if (validSections.includes(section)) {
         onNavigate(section);

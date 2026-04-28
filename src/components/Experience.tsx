@@ -5,7 +5,7 @@ export function Experience() {
       title: "Resident Assistant",
       organization: "Dakota State University - Residence Life",
       location: "Madison, SD",
-      period: "Aug 2025 ΓÇô Present",
+      period: "Aug 2025 - Present",
       description: "Leading community safety and emergency response for 40+ residents, facilitating conflict resolution and policy compliance.",
       skills: ["Leadership", "Community Building", "Conflict Resolution"],
     },
@@ -14,7 +14,7 @@ export function Experience() {
       title: "Barista",
       organization: "Starbucks - Dakota State University",
       location: "Madison, SD",
-      period: "Feb 2026 ΓÇô Present",
+      period: "Feb 2026 - Present",
       description: "Executing high-volume orders with strict adherence to standardized procedures and technical specifications.",
       skills: ["Customer Service", "Order Management", "Time Management"],
     },
@@ -23,7 +23,7 @@ export function Experience() {
       title: "Food Service Worker",
       organization: "Sodexo - Dakota State University",
       location: "Madison, SD",
-      period: "Dec 2024 ΓÇô Feb 2026",
+      period: "Dec 2024 - Feb 2026",
       description: "Maintained consistent service output for 500+ daily users, ensuring compliance with health and safety protocols.",
       skills: ["Food Service", "Sanitation", "Customer Service"],
     },
@@ -32,7 +32,7 @@ export function Experience() {
       title: "Production Intern",
       organization: "Encore Media",
       location: "Kathmandu, Nepal",
-      period: "Aug 2023 ΓÇô Apr 2024",
+      period: "Aug 2023 - Apr 2024",
       description: "Managed the full development lifecycle for 10-15 WordPress client websites. Developed digital marketing campaigns driving social media engagement to over 40,000 views. Produced 20+ professional video assets using Premiere Pro and After Effects.",
       skills: ["Premiere Pro", "After Effects", "WordPress", "Figma", "Digital Marketing"],
     },
@@ -41,7 +41,7 @@ export function Experience() {
       title: "President, International Club",
       organization: "Dakota State University",
       location: "Madison, SD",
-      period: "Aug 2025 ΓÇô Present",
+      period: "Aug 2025 - Present",
       description: "Lead cultural initiatives and campus-wide events to foster engagement among a diverse body of 200+ international students.",
       skills: ["Leadership", "Event Planning", "Cultural Engagement"],
     },
@@ -50,7 +50,7 @@ export function Experience() {
       title: "Vice President, Residence Hall Council",
       organization: "Dakota State University",
       location: "Madison, SD",
-      period: "Sep 2024 ΓÇô May 2025",
+      period: "Sep 2024 - May 2025",
       description: "Facilitated weekly council meetings to address resident concerns and coordinated budget/planning for community events.",
       skills: ["Organization", "Communication", "Event Coordination"],
     },
@@ -67,7 +67,7 @@ export function Experience() {
               {exp.title}
             </h4>
             <div className="text-gray-400 font-normal mb-1">
-              {exp.organization} ΓÇö {exp.location}
+              {exp.organization} - {exp.location}
             </div>
             
             <div className="text-cyan-400 text-sm mb-2">{exp.period}</div>

@@ -1,6 +1,15 @@
 export function Works() {
   const projects = [
     {
+      title: "Terminal Quest",
+      link: "https://github.com/evanbh256/terminal-quest",
+      highlights: [
+        "Built a text-based dungeon RPG where players learn Linux CLI by navigating rooms as directories and interacting with files as items",
+        "Integrated Claude AI via Supabase Edge Functions as a dynamic Dungeon Master for level generation, command tutoring, and adaptive quizzes"
+      ],
+      tags: ["React", "TypeScript", "Vite", "Tailwind CSS", "Supabase", "Framer Motion"],
+    },
+    {
       title: "HandAll",
       link: "https://github.com/evanbh256/HandAll",
       highlights: [
@@ -21,16 +30,6 @@ export function Works() {
         "Implemented full version control and continuous deployment"
       ],
       tags: ["TypeScript", "React", "Tailwind CSS", "Figma", "Cloudflare"],
-    },
-    {
-      title: "NCAE Cyber Games 2026",
-      highlights: [
-        "Placed 5th in Regionals",
-        "Engineered defensive strategies to secure simulated corporate network",
-        "Competed against professional Red Team attackers",
-        "Designed robust cyber defense strategies in competitive environment"
-      ],
-      tags: ["Cybersecurity", "Defensive Strategies", "Network Security"],
     },
     {
       title: "Cybersecurity Home Lab Environment",

@@ -13,6 +13,7 @@ interface WindowProps {
   children: React.ReactNode;
   defaultWidth?: string;
   defaultHeight?: string;
+  zIndex?: number;
 }
 
 export function Window({ 
@@ -23,7 +24,8 @@ export function Window({
   onClick,
   isActive,
   isMinimized,
-  children
+  children,
+  zIndex
 }: WindowProps) {
   const [isMaximized, setIsMaximized] = useState(false);
 
@@ -66,7 +68,7 @@ export function Window({
       enableResizing={!isMaximized}
       bounds="window"
       dragHandleClassName="window-handle"
-      style={{ zIndex: isActive ? 40 : 30, position: 'absolute' }}
+      style={{ zIndex: zIndex !== undefined ? zIndex : (isActive ? 40 : 30), position: 'absolute' }}
       className={`rounded-xl overflow-hidden shadow-2xl border border-gray-700 bg-[#1e1e1e] text-gray-200 transition-opacity animate-in fade-in zoom-in-95 duration-200`}
       onClick={onClick}
       minWidth={300}
