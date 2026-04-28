@@ -53,7 +53,7 @@ export function Window({
 
   return (
     <Rnd
-      size={isMaximized ? { width: '100%', height: 'calc(100% - 48px)' } : size}
+      size={isMaximized ? { width: '100%', height: '100%' } : size}
       position={isMaximized ? { x: 0, y: 0 } : position}
       onDragStop={(e, d) => {
         if (!isMaximized) setPosition({ x: d.x, y: d.y });
@@ -69,7 +69,7 @@ export function Window({
       bounds="window"
       dragHandleClassName="window-handle"
       style={{ zIndex: zIndex !== undefined ? zIndex : (isActive ? 40 : 30), position: 'absolute' }}
-      className={`rounded-xl overflow-hidden shadow-2xl border border-gray-700 bg-[#1e1e1e] text-gray-200 transition-opacity animate-in fade-in zoom-in-95 duration-200`}
+      className={`${isMaximized ? 'rounded-none border-none' : 'rounded-xl border border-gray-700'} overflow-hidden shadow-2xl bg-[#1e1e1e] text-gray-200 transition-opacity animate-in fade-in zoom-in-95 duration-200`}
       onClick={onClick}
       minWidth={300}
       minHeight={200}
@@ -114,7 +114,7 @@ export function Window({
 
       {/* Window Content */}
       <div
-        className={`absolute top-[42px] left-0 right-0 bottom-0 overflow-y-auto p-6 custom-scrollbar bg-[#1e1e1e] focus:outline-none ${!isActive && 'opacity-90 grayscale-[20%]'}`}
+        className={`absolute top-[42px] left-0 right-0 ${isMaximized ? 'bottom-[42px]' : 'bottom-0'} overflow-y-auto p-6 custom-scrollbar bg-[#1e1e1e] focus:outline-none ${!isActive && 'opacity-90 grayscale-[20%]'}`}
         contentEditable={id !== "terminal" ? "true" : "false"}
         suppressContentEditableWarning={true}
         spellCheck="false"

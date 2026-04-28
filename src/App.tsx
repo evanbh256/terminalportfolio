@@ -8,6 +8,7 @@ import { Contact } from "./components/Contact";
 import { Window } from "./components/Window";
 import { DesktopIcon } from "./components/DesktopIcon";
 import { Taskbar } from "./components/Taskbar";
+import { TuxRunner } from "./components/TuxRunner";
 
 // Import icons to ensure Vite bundles them with hashes
 import terminalIcon from "./assets/icons8-terminal-96.png";
@@ -21,6 +22,7 @@ export default function App() {
   const [openWindows, setOpenWindows] = useState<string[]>(["terminal"]);
   const [minimizedWindows, setMinimizedWindows] = useState<string[]>([]);
   const [activeWindow, setActiveWindow] = useState<string | null>("terminal");
+  const [showTuxRunner, setShowTuxRunner] = useState(false);
 
   const handleOpenWindow = (section: string) => {
     if (section === "home") return;
@@ -188,7 +190,9 @@ export default function App() {
         openWindows={openWindows}
         activeWindow={activeWindow}
         onWindowClick={toggleWindow}
+        onStartClick={() => setShowTuxRunner(true)}
       />
+      {showTuxRunner && <TuxRunner onClose={() => setShowTuxRunner(false)} />}
     </div>
   );
 }
