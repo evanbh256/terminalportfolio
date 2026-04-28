@@ -13,7 +13,7 @@ import { Taskbar } from "./components/Taskbar";
 import terminalIcon from "./assets/icons8-terminal-96.png";
 import aboutIcon from "./assets/icons8-find-user-male-96.png";
 import worksIcon from "./assets/icons8-folder-96.png";
-import competitionsIcon from "./assets/icons8-project-96.png";
+import competitionsIcon from "./assets/icons8-trophy-96.png";
 import experienceIcon from "./assets/icons8-project-96.png";
 import contactIcon from "./assets/icons8-contact-96.png";
 
