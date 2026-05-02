@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Hero } from "./components/Hero";
 import { About } from "./components/About";
 import { Works } from "./components/Works";
@@ -8,7 +8,19 @@ import { Contact } from "./components/Contact";
 import { Window } from "./components/Window";
 import { DesktopIcon } from "./components/DesktopIcon";
 import { Taskbar } from "./components/Taskbar";
-import { TuxRunner } from "./components/TuxRunner";
+import { Neofetch } from "./components/Neofetch";
+import { MobileLayout } from "./components/MobileLayout";
+
+function useIsMobile() {
+  const [isMobile, setIsMobile] = useState(() => window.innerWidth < 768);
+  useEffect(() => {
+    const mq = window.matchMedia("(max-width: 767px)");
+    const handler = (e: MediaQueryListEvent) => setIsMobile(e.matches);
+    mq.addEventListener("change", handler);
+    return () => mq.removeEventListener("change", handler);
+  }, []);
+  return isMobile;
+}
 
 // Import icons to ensure Vite bundles them with hashes
 import terminalIcon from "./assets/icons8-terminal-96.png";
@@ -19,10 +31,16 @@ import experienceIcon from "./assets/icons8-project-96.png";
 import contactIcon from "./assets/icons8-contact-96.png";
 
 export default function App() {
+  const isMobile = useIsMobile();
   const [openWindows, setOpenWindows] = useState<string[]>(["terminal"]);
   const [minimizedWindows, setMinimizedWindows] = useState<string[]>([]);
   const [activeWindow, setActiveWindow] = useState<string | null>("terminal");
-  const [showTuxRunner, setShowTuxRunner] = useState(false);
+  const [showNeofetch, setShowNeofetch] = useState(false);
+
+  // On mobile, render a completely different layout
+  if (isMobile) {
+    return <MobileLayout showNeofetch={showNeofetch} setShowNeofetch={setShowNeofetch} />;
+  }
 
   const handleOpenWindow = (section: string) => {
     if (section === "home") return;
@@ -190,9 +208,9 @@ export default function App() {
         openWindows={openWindows}
         activeWindow={activeWindow}
         onWindowClick={toggleWindow}
-        onStartClick={() => setShowTuxRunner(true)}
+        onStartClick={() => setShowNeofetch(true)}
       />
-      {showTuxRunner && <TuxRunner onClose={() => setShowTuxRunner(false)} />}
+      {showNeofetch && <Neofetch onClose={() => setShowNeofetch(false)} />}
     </div>
   );
 }

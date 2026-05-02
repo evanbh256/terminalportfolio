@@ -2,6 +2,19 @@ import { X, Maximize2, Minimize2, Minus } from "lucide-react";
 import { useState, useEffect } from "react";
 import { Rnd } from "react-rnd";
 
+function useIsTablet() {
+  const [isTablet, setIsTablet] = useState(
+    () => window.innerWidth >= 768 && window.innerWidth < 1024
+  );
+  useEffect(() => {
+    const mq = window.matchMedia("(min-width: 768px) and (max-width: 1023px)");
+    const h = (e: MediaQueryListEvent) => setIsTablet(e.matches);
+    mq.addEventListener("change", h);
+    return () => mq.removeEventListener("change", h);
+  }, []);
+  return isTablet;
+}
+
 interface WindowProps {
   id: string;
   title: string;
@@ -27,13 +40,14 @@ export function Window({
   children,
   zIndex
 }: WindowProps) {
-  const [isMaximized, setIsMaximized] = useState(false);
+  const isTablet = useIsTablet();
+  const [isMaximized, setIsMaximized] = useState(() => isTablet);
 
   // Default size logic
-  const initWidth = Math.min(800, window.innerWidth * 0.9);
-  const initHeight = Math.min(600, window.innerHeight * 0.8);
-  const initX = (window.innerWidth - initWidth) / 2 + (Math.random() * 40 - 20);
-  const initY = (window.innerHeight - initHeight) / 2 + (Math.random() * 40 - 20);
+  const initWidth = Math.min(800, window.innerWidth * 0.92);
+  const initHeight = Math.min(600, window.innerHeight * 0.78);
+  const initX = (window.innerWidth - initWidth) / 2 + (Math.random() * 20 - 10);
+  const initY = (window.innerHeight - initHeight) / 2 + (Math.random() * 20 - 10);
 
   const [size, setSize] = useState<{ width: string | number; height: string | number }>({ width: initWidth, height: initHeight });
   const [position, setPosition] = useState({ x: initX, y: initY });
@@ -71,8 +85,8 @@ export function Window({
       style={{ zIndex: zIndex !== undefined ? zIndex : (isActive ? 40 : 30), position: 'absolute' }}
       className={`${isMaximized ? 'rounded-none border-none' : 'rounded-xl border border-gray-700'} overflow-hidden shadow-2xl bg-[#1e1e1e] text-gray-200 transition-opacity animate-in fade-in zoom-in-95 duration-200`}
       onClick={onClick}
-      minWidth={300}
-      minHeight={200}
+      minWidth={240}
+      minHeight={180}
     >
       {/* Window Header */}
       <div 

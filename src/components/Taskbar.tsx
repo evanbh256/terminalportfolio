@@ -52,7 +52,7 @@ export function Taskbar({ openWindows, activeWindow, onWindowClick, onStartClick
 
   return (
     <div className="h-[42px] w-full bg-gray-900/80 backdrop-blur-md border-t border-white/10 flex items-center justify-between px-1 z-50 select-none">
-      <div className="flex items-center gap-1 h-full">
+      <div className="flex items-center gap-1 h-full overflow-x-auto hide-scrollbar min-w-0 flex-1">
         {/* Start Button */}
         <button
           onClick={onStartClick}
@@ -90,10 +90,10 @@ export function Taskbar({ openWindows, activeWindow, onWindowClick, onStartClick
       </div>
 
       {/* System Tray */}
-      <div className="flex items-center gap-3 px-3 text-gray-200 text-xs font-mono">
+      <div className="flex items-center gap-3 px-3 text-gray-200 text-xs font-mono shrink-0">
         <div className="flex flex-col items-end justify-center">
           <span>{formatTime(time)}</span>
-          <span className="text-[10px] text-gray-400">{formatDate(time)}</span>
+          <span className="hidden md:block text-[10px] text-gray-400">{formatDate(time)}</span>
         </div>
       </div>
     </div>
