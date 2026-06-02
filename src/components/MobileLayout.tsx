@@ -13,6 +13,7 @@ import worksIcon from "../assets/icons8-folder-96.png";
 import competitionsIcon from "../assets/icons8-trophy-96.png";
 import experienceIcon from "../assets/icons8-project-96.png";
 import contactIcon from "../assets/icons8-contact-96.png";
+import resumeIcon from "../assets/icons8-paper-96.png";
 import logoIcon from "../assets/logo.png";
 
 const SECTIONS = [
@@ -22,6 +23,7 @@ const SECTIONS = [
   { id: "competitions", label: "Compete", icon: competitionsIcon },
   { id: "experience",   label: "Exp",   icon: experienceIcon },
   { id: "contact",  label: "Contact",  icon: contactIcon },
+  { id: "resume",   label: "Resume",   icon: resumeIcon },
 ];
 
 function SectionContent({ id, onNavigate }: { id: string; onNavigate: (s: string) => void }) {
@@ -32,6 +34,7 @@ function SectionContent({ id, onNavigate }: { id: string; onNavigate: (s: string
     case "competitions": return <Competitions />;
     case "experience":   return <Experience />;
     case "contact":      return <Contact />;
+    case "resume":       return null; // Handle navigation in MobileLayout
     default:             return <Hero onNavigate={onNavigate} />;
   }
 }
@@ -55,6 +58,10 @@ export function MobileLayout({ showNeofetch, setShowNeofetch }: MobileLayoutProp
 
   const handleNavigate = (section: string) => {
     if (section === "home") return;
+    if (section === "resume") {
+      window.open("./EvanBhandari-Web.pdf", "_blank");
+      return;
+    }
     setActive(section);
   };
 
@@ -100,7 +107,7 @@ export function MobileLayout({ showNeofetch, setShowNeofetch }: MobileLayoutProp
           return (
             <button
               key={s.id}
-              onClick={() => setActive(s.id)}
+              onClick={() => handleNavigate(s.id)}
               aria-label={s.label}
               className={`flex flex-col items-center justify-center gap-0.5 w-12 h-12 rounded-lg transition-all duration-150
                 ${isActive

@@ -29,6 +29,7 @@ import worksIcon from "./assets/icons8-folder-96.png";
 import competitionsIcon from "./assets/icons8-trophy-96.png";
 import experienceIcon from "./assets/icons8-project-96.png";
 import contactIcon from "./assets/icons8-contact-96.png";
+import resumeIcon from "./assets/icons8-paper-96.png";
 
 export default function App() {
   const isMobile = useIsMobile();
@@ -42,8 +43,16 @@ export default function App() {
     return <MobileLayout showNeofetch={showNeofetch} setShowNeofetch={setShowNeofetch} />;
   }
 
+  const handleOpenResume = () => {
+    window.open("./EvanBhandari-Web.pdf", "_blank");
+  };
+
   const handleOpenWindow = (section: string) => {
     if (section === "home") return;
+    if (section === "resume") {
+      handleOpenResume();
+      return;
+    }
     setOpenWindows(prev => {
       const without = prev.filter(w => w !== section);
       return [...without, section];
@@ -114,6 +123,7 @@ export default function App() {
           <DesktopIcon iconSrc={competitionsIcon} label="Competitions" onClick={() => handleOpenWindow("competitions")} />
           <DesktopIcon iconSrc={experienceIcon} label="Experience" onClick={() => handleOpenWindow("experience")} />
           <DesktopIcon iconSrc={contactIcon} label="Contact" onClick={() => handleOpenWindow("contact")} />
+          <DesktopIcon iconSrc={resumeIcon} label="Resume" onClick={() => handleOpenWindow("resume")} />
         </div>
       </main>
 

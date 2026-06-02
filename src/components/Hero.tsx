@@ -121,7 +121,7 @@ export function Hero({ onNavigate }: HeroProps) {
           <div className="ml-2 mt-1 space-y-1">
             <div><span className="text-green-400">whoami</span> - Display information about me</div>
             <div><span className="text-green-400">ls</span> - List available sections</div>
-            <div><span className="text-green-400">cd [section]</span> - Navigate to a section (about/projects/competitions/experience/contact)</div>
+            <div><span className="text-green-400">cd [section]</span> - Navigate to a section (about/projects/competitions/experience/contact/resume)</div>
             <div><span className="text-green-400">uname -a</span> - Print system information</div>
             <div><span className="text-green-400">clear</span> - Clear the terminal</div>
             <div><span className="text-green-400">help</span> - Show this help message</div>
@@ -207,6 +207,15 @@ export function Hero({ onNavigate }: HeroProps) {
                 contact/
               </button>
             </div>
+            <div className="flex items-center gap-3">
+              <span className="text-blue-400">-rw-r--r--</span>
+              <button
+                onClick={(e) => handleDirectoryClick(e, "resume")}
+                className="text-cyan-400 hover:text-cyan-300 hover:underline cursor-pointer transition-colors pointer-events-auto"
+              >
+                resume.pdf
+              </button>
+            </div>
           </div>
         </div>
       );
@@ -236,7 +245,7 @@ export function Hero({ onNavigate }: HeroProps) {
       );
     } else if (trimmedCmd.startsWith("cd ")) {
       const section = trimmedCmd.substring(3).trim().replace("/", "");
-      const validSections = ["about", "works", "competitions", "experience", "contact", "home"];
+      const validSections = ["about", "works", "competitions", "experience", "contact", "home", "resume"];
 
       if (validSections.includes(section)) {
         onNavigate(section);
@@ -244,6 +253,12 @@ export function Hero({ onNavigate }: HeroProps) {
           output = (
             <div className="text-gray-300 mt-1 ml-2">
               Closing all windows...
+            </div>
+          );
+        } else if (section === "resume") {
+          output = (
+            <div className="text-gray-300 mt-1 ml-2">
+              Opening resume.pdf...
             </div>
           );
         } else {
