@@ -1,8 +1,0 @@
-﻿public/img/bg.jpg
-public/img/evan.jpg
-public/img/handall.png
-public/img/kali.jpg
-public/img/logo.png
-public/img/logos/DSU_UniversityLogo_Icon_Primary.png
-public/img/ncae.jpg
-public/img/web.png
