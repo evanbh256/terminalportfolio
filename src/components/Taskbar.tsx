@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Home } from "lucide-react";
 
 // Import icons to ensure Vite bundles them
 import terminalIcon from "../assets/icons8-terminal-96.png";
@@ -14,6 +15,7 @@ interface TaskbarProps {
   activeWindow: string | null;
   onWindowClick: (windowId: string) => void;
   onStartClick?: () => void;
+  onNavigateHome?: () => void;
 }
 
 const windowIcons: Record<string, string> = {
@@ -34,7 +36,7 @@ const windowLabels: Record<string, string> = {
   contact: "Contact",
 };
 
-export function Taskbar({ openWindows, activeWindow, onWindowClick, onStartClick }: TaskbarProps) {
+export function Taskbar({ openWindows, activeWindow, onWindowClick, onStartClick, onNavigateHome }: TaskbarProps) {
   const [time, setTime] = useState(new Date());
 
   useEffect(() => {
@@ -65,6 +67,18 @@ export function Taskbar({ openWindows, activeWindow, onWindowClick, onStartClick
             className="w-6 h-6 object-contain drop-shadow-md" 
           />
         </button>
+
+        {/* Home Button */}
+        {onNavigateHome && (
+          <button
+            onClick={onNavigateHome}
+            className="h-9 px-3 flex items-center justify-center rounded hover:bg-white/10 transition-colors cursor-pointer text-gray-300 hover:text-white"
+            aria-label="Home"
+            title="Return to Home"
+          >
+            <Home size={18} />
+          </button>
+        )}
 
         <div className="w-px h-6 bg-white/10 mx-1" />
 
