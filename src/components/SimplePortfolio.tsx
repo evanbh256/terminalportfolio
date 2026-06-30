@@ -1,7 +1,78 @@
-import React from 'react';
-import { ExternalLink } from 'lucide-react';
+import React, { useEffect, useState, useRef } from 'react';
+import { ExternalLink, Github, Linkedin, Mail } from 'lucide-react';
+
+const sections = [
+  { id: 'about', label: 'About' },
+  { id: 'education', label: 'Education' },
+  { id: 'competitions', label: 'Competitions' },
+  { id: 'projects', label: 'Projects' },
+  { id: 'experience', label: 'Experience' },
+  { id: 'skills', label: 'Skills' },
+];
 
 export function SimplePortfolio() {
+  const [activeSection, setActiveSection] = useState('about');
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    // Find the scroll container (parent with overflow-y-auto)
+    const el = containerRef.current;
+    if (!el) return;
+    const scrollRoot = el.closest('.custom-scrollbar') as HTMLElement | null;
+    if (!scrollRoot) return;
+
+    const observers: IntersectionObserver[] = [];
+    const visibleSections = new Map<string, number>();
+
+    sections.forEach(({ id }) => {
+      const target = document.getElementById(id);
+      if (!target) return;
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              visibleSections.set(id, entry.intersectionRatio);
+            } else {
+              visibleSections.delete(id);
+            }
+          });
+
+          // Pick the section with the highest visibility
+          let best = '';
+          let bestRatio = 0;
+          visibleSections.forEach((ratio, sectionId) => {
+            if (ratio > bestRatio) {
+              bestRatio = ratio;
+              best = sectionId;
+            }
+          });
+          if (best) setActiveSection(best);
+        },
+        {
+          root: scrollRoot,
+          threshold: [0, 0.25, 0.5, 0.75, 1],
+          rootMargin: '-10% 0px -10% 0px',
+        }
+      );
+
+      observer.observe(target);
+      observers.push(observer);
+    });
+
+    return () => observers.forEach((o) => o.disconnect());
+  }, []);
+
+  const handleNavClick = (id: string) => {
+    const target = document.getElementById(id);
+    if (!target) return;
+    const scrollRoot = containerRef.current?.closest('.custom-scrollbar');
+    if (!scrollRoot) return;
+    const containerTop = scrollRoot.getBoundingClientRect().top;
+    const targetTop = target.getBoundingClientRect().top;
+    scrollRoot.scrollBy({ top: targetTop - containerTop, behavior: 'smooth' });
+  };
+
   const experiences = [
     {
       role: 'Office Assistant',
@@ -36,12 +107,48 @@ export function SimplePortfolio() {
   ];
 
   const competitions = [
-    { name: 'eCitadel', result: 'Participant — Database & Router', date: 'Jun 2026', detail: 'Defended an AD Domain Controller against live Red Team attacks. Hardened Windows Server with Sysmon monitoring.' },
-    { name: 'HiveCTF', result: '1st Place (DSU Bracket)', date: 'Apr 2026', detail: 'Solved web exploitation, crypto, and reverse engineering challenges in a competitive CTF.' },
-    { name: 'SillyCTF', result: '6th Place Overall', date: 'Apr 2026', detail: 'Cracked advanced OSINT and crypto challenges in a global competition hosted by Penn State.' },
-    { name: 'Ignite Hackathon', result: 'Full Stack Developer', date: 'Feb 2026', detail: 'Built a browser-based dungeon RPG with Supabase Edge Functions and Gemini AI in a sprint hackathon.' },
-    { name: 'NCAE Cyber Games', result: '5th Place Regionals', date: 'Feb 2026', detail: 'Maintained critical database and routing services under sustained adversarial pressure in a simulated enterprise defense.' },
-    { name: 'Nepal-US Hackathon', result: 'Lead Frontend / Full Stack', date: 'Feb 2026', detail: 'Delivered an AI student productivity tool with LangGraph automation and calendar sync in 36 hours.' },
+    {
+      place: "1st",
+      meta: "(DSU Bracket)",
+      title: "HiveCTF",
+      subtitle: "Solved web exploitation, crypto, and reverse engineering challenges in a competitive CTF.",
+      date: "Apr 2026"
+    },
+    {
+      place: "5th",
+      meta: "Regionals",
+      title: "NCAE Cyber Games",
+      subtitle: "Maintained critical database and routing services under sustained adversarial pressure in a simulated enterprise defense.",
+      date: "Feb 2026"
+    },
+    {
+      place: "6th",
+      meta: "Overall",
+      title: "SillyCTF",
+      subtitle: "Cracked advanced OSINT and crypto challenges in a global competition hosted by Penn State.",
+      date: "Apr 2026"
+    },
+    {
+      place: "Participant",
+      meta: "Database & Router",
+      title: "eCitadel",
+      subtitle: "Defended an AD Domain Controller against live Red Team attacks. Hardened Windows Server with Sysmon monitoring.",
+      date: "Jun 2026"
+    },
+    {
+      place: "",
+      meta: "Sprint Hackathon",
+      title: "Ignite Hackathon",
+      subtitle: "Built a browser-based dungeon RPG with Supabase Edge Functions and Gemini AI.",
+      date: "Feb 2026"
+    },
+    {
+      place: "",
+      meta: "36-Hour Hackathon",
+      title: "Nepal-US Hackathon",
+      subtitle: "Delivered an AI student productivity tool with LangGraph automation and calendar sync.",
+      date: "Feb 2026"
+    },
   ];
 
   const skills = [
@@ -52,10 +159,74 @@ export function SimplePortfolio() {
   ];
 
   return (
-    <div className="w-full bg-[#1e1e1e] text-gray-200 font-mono border-t border-gray-800">
+    <div ref={containerRef} className="w-full bg-[#1e1e1e] text-gray-200 font-mono relative">
+
+      {/* ─── SIDE NAV ─── */}
+      <nav className="hidden lg:flex fixed right-6 top-1/2 -translate-y-1/2 z-50 flex-col items-end group/nav py-4">
+        {sections.map(({ id, label }, idx) => {
+          const activeIdx = sections.findIndex(s => s.id === activeSection);
+          const start = activeIdx === 0 ? 0 : activeIdx === sections.length - 1 ? sections.length - 3 : activeIdx - 1;
+          const visibleRange = [start, start + 1, start + 2];
+          const isVisible = visibleRange.includes(idx);
+          const isActive = activeSection === id;
+
+          return (
+            <button
+              key={id}
+              data-active={isActive}
+              onClick={() => handleNavClick(id)}
+              className="group flex items-center gap-2 cursor-pointer"
+              style={{
+                opacity: isVisible ? (isActive ? 1 : 0.4) : 0,
+                height: isVisible ? '28px' : '0px',
+                marginBottom: isVisible ? '4px' : '0px',
+                overflow: 'hidden',
+                pointerEvents: isVisible ? 'auto' : 'none',
+                transition: 'opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1), height 0.5s cubic-bezier(0.4, 0, 0.2, 1), margin-bottom 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
+              }}
+              onMouseEnter={(e) => {
+                if (isVisible && !isActive) e.currentTarget.style.opacity = '0.7';
+              }}
+              onMouseLeave={(e) => {
+                if (isVisible && !isActive) e.currentTarget.style.opacity = '0.4';
+              }}
+            >
+              <span className={`text-[10px] font-mono uppercase tracking-wider transition-all duration-500 ease-out ${
+                isActive ? 'text-amber-200 translate-x-0' : 'text-gray-500 translate-x-1 group-hover:translate-x-0'
+              }`}>
+                {label}
+              </span>
+              <span className={`block rounded-full flex-shrink-0 transition-all duration-500 ease-out ${
+                isActive
+                  ? 'w-2 h-2 bg-amber-200'
+                  : 'w-1.5 h-1.5 bg-gray-600 group-hover:bg-gray-400'
+              }`} />
+            </button>
+          );
+        })}
+        {/* Hover overlay to expand all items */}
+        <style>{`
+          .group\\/nav:hover button {
+            opacity: 0.4 !important;
+            height: 28px !important;
+            margin-bottom: 4px !important;
+            pointer-events: auto !important;
+          }
+          .group\\/nav:hover button:hover {
+            opacity: 0.7 !important;
+          }
+          .group\\/nav button[data-active="true"] {
+            opacity: 1 !important;
+          }
+          .group\\/nav:hover button[data-active="true"] {
+            opacity: 1 !important;
+          }
+        `}</style>
+        {/* Re-render with data attribute for CSS targeting */}
+      </nav>
 
       {/* ─── ABOUT ─── */}
-      <section className="w-full px-4 sm:px-8 md:px-16 lg:px-24 py-16 sm:py-24 md:py-32">
+      <section id="about" className="w-full px-4 sm:px-8 md:px-16 lg:px-24 py-16 sm:py-24 md:py-32">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-amber-200 text-xs font-bold uppercase tracking-[0.3em] mb-8">About</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-20">
@@ -74,7 +245,7 @@ export function SimplePortfolio() {
       </section>
 
       {/* ─── EDUCATION ─── */}
-      <section className="w-full px-4 sm:px-8 md:px-16 lg:px-24 py-12 sm:py-16 md:py-20 border-t border-gray-800">
+      <section id="education" className="w-full px-4 sm:px-8 md:px-16 lg:px-24 py-12 sm:py-16 md:py-20">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-amber-200 text-xs font-bold uppercase tracking-[0.3em] mb-8">Education</h2>
           <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
@@ -92,18 +263,30 @@ export function SimplePortfolio() {
       </section>
 
       {/* ─── COMPETITIONS ─── */}
-      <section className="w-full px-4 sm:px-8 md:px-16 lg:px-24 py-12 sm:py-16 md:py-20 border-t border-gray-800">
+      <section id="competitions" className="w-full px-4 sm:px-8 md:px-16 lg:px-24 py-12 sm:py-16 md:py-20">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-amber-200 text-xs font-bold uppercase tracking-[0.3em] mb-12">Competitions</h2>
+          
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {competitions.map((comp, i) => (
-              <div key={i} className="border border-gray-700 p-5 sm:p-6 hover:border-amber-200/30 transition-colors duration-300">
-                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1 sm:gap-0 mb-2">
-                  <h4 className="text-white font-bold text-sm">{comp.name}</h4>
-                  <span className="text-cyan-400 text-xs flex-shrink-0">{comp.date}</span>
+            {competitions.map((comp, idx) => (
+              <div 
+                key={idx} 
+                className="border border-gray-700 p-5 sm:p-6 hover:border-amber-200/30 transition-colors duration-300 flex flex-col items-center justify-center text-center"
+              >
+                {comp.place && (
+                  <div className={`font-bold text-amber-200 mb-2 ${comp.place.length > 5 ? 'text-2xl md:text-3xl' : 'text-4xl md:text-5xl'}`}>
+                    {comp.place}
+                  </div>
+                )}
+                <div className="text-cyan-400 text-xs mb-4">
+                  {comp.meta} • {comp.date}
                 </div>
-                <p className="text-green-400 text-xs mb-3">{comp.result}</p>
-                <p className="text-gray-400 text-xs leading-relaxed">{comp.detail}</p>
+                <h4 className="text-white font-bold text-sm mb-1">
+                  {comp.title}
+                </h4>
+                <div className="text-gray-400 text-xs leading-relaxed mt-2">
+                  {comp.subtitle}
+                </div>
               </div>
             ))}
           </div>
@@ -111,7 +294,7 @@ export function SimplePortfolio() {
       </section>
 
       {/* ─── PROJECTS ─── */}
-      <section className="w-full px-4 sm:px-8 md:px-16 lg:px-24 py-12 sm:py-16 md:py-20 border-t border-gray-800">
+      <section id="projects" className="w-full px-4 sm:px-8 md:px-16 lg:px-24 py-12 sm:py-16 md:py-20">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-amber-200 text-xs font-bold uppercase tracking-[0.3em] mb-12">Projects</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
@@ -163,7 +346,7 @@ export function SimplePortfolio() {
       </section>
 
       {/* ─── EXPERIENCE TIMELINE ─── */}
-      <section className="w-full px-4 sm:px-8 md:px-16 lg:px-24 py-12 sm:py-16 md:py-20 border-t border-gray-800">
+      <section id="experience" className="w-full px-4 sm:px-8 md:px-16 lg:px-24 py-12 sm:py-16 md:py-20">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-amber-200 text-xs font-bold uppercase tracking-[0.3em] mb-12">Experience</h2>
 
@@ -193,7 +376,7 @@ export function SimplePortfolio() {
       </section>
 
       {/* ─── SKILLS ─── */}
-      <section className="w-full px-4 sm:px-8 md:px-16 lg:px-24 py-12 sm:py-16 md:py-20 border-t border-gray-800">
+      <section id="skills" className="w-full px-4 sm:px-8 md:px-16 lg:px-24 py-12 sm:py-16 md:py-20">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-amber-200 text-xs font-bold uppercase tracking-[0.3em] mb-12">Skills</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10">
@@ -214,13 +397,19 @@ export function SimplePortfolio() {
       </section>
 
       {/* ─── FOOTER ─── */}
-      <footer className="w-full px-4 sm:px-8 md:px-16 lg:px-24 py-8 sm:py-12 border-t border-gray-800">
+      <footer className="w-full px-4 sm:px-8 md:px-16 lg:px-24 py-8 sm:py-12">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-gray-600 text-xs">© 2026 Evan Bhandari</p>
           <div className="flex gap-6 text-gray-500 text-xs">
-            <a href="https://github.com/evanbh256" target="_blank" rel="noopener noreferrer" className="hover:text-green-400 transition-colors">GitHub</a>
-            <a href="https://linkedin.com/in/evan-bhandari" target="_blank" rel="noopener noreferrer" className="hover:text-green-400 transition-colors">LinkedIn</a>
-            <a href="mailto:bhandari.nirwan06@gmail.com" className="hover:text-green-400 transition-colors">Email</a>
+            <a href="https://github.com/evanbh256" target="_blank" rel="noopener noreferrer" className="hover:text-green-400 transition-colors" aria-label="GitHub">
+              <Github size={18} />
+            </a>
+            <a href="https://linkedin.com/in/evan-bhandari" target="_blank" rel="noopener noreferrer" className="hover:text-green-400 transition-colors" aria-label="LinkedIn">
+              <Linkedin size={18} />
+            </a>
+            <a href="mailto:bhandari.nirwan06@gmail.com" className="hover:text-green-400 transition-colors" aria-label="Email">
+              <Mail size={18} />
+            </a>
           </div>
         </div>
       </footer>
@@ -228,3 +417,4 @@ export function SimplePortfolio() {
     </div>
   );
 }
+

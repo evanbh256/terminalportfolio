@@ -69,8 +69,8 @@ export function LandingPage({ onScrollDown }: LandingPageProps) {
         </h1>
         
         <p className="text-xs sm:text-sm md:text-base text-gray-200 leading-relaxed max-w-2xl">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        </p>
+          Welcome to my website!
+          </p>
       </div>
 
       {/* Bottom Section: Nav + Details */}
